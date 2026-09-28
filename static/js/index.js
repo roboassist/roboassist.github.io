@@ -11,30 +11,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  const copyButton = document.querySelector("#copy-bibtex");
-  const bibtexCode = document.querySelector("#bibtex-code");
-  const copyStatus = document.querySelector("#copy-status");
-
-  if (!copyButton || !bibtexCode || !copyStatus) return;
-
-  copyButton.addEventListener("click", async () => {
-    const citation = bibtexCode.textContent.trim();
-
-    try {
-      await navigator.clipboard.writeText(citation);
-      copyButton.textContent = "Copied";
-      copyStatus.textContent = "BibTeX copied to clipboard.";
-    } catch (error) {
-      const range = document.createRange();
-      range.selectNodeContents(bibtexCode);
-      const selection = window.getSelection();
-      selection.removeAllRanges();
-      selection.addRange(range);
-      copyStatus.textContent = "Clipboard access was unavailable. The BibTeX text is selected for manual copying.";
-    }
-
-    window.setTimeout(() => {
-      copyButton.textContent = "Copy BibTeX";
-    }, 1800);
-  });
 });

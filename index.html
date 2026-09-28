@@ -117,7 +117,7 @@
               <img src="./static/images/experiment-task-performance.png" alt="Task success rates and sequential subtask completion for RoboAssist and comparison methods." decoding="async">
             </div>
             <figcaption>
-              <strong>Task execution performance.</strong> Task success and sequential subtask completion for single-item transfer and long-horizon surgical assistance.
+              <strong>Task execution performance.</strong> RoboAssist achieved 93.3% single-item success and 85.7% long-horizon task success.
             </figcaption>
           </figure>
 
@@ -129,80 +129,37 @@
               <strong>Workflow completion time.</strong> Completion-time distributions over five successful multi-object runs per method.
             </figcaption>
           </figure>
+        </div>
 
-          <figure class="result-figure result-figure--centered">
-            <div class="result-figure__media result-figure__media--square">
-              <img src="./static/images/experiment-safety.png" alt="Cross-layer safety evaluation for navigation, protective responses, and response times." decoding="async">
-            </div>
-            <figcaption>
-              <strong>Cross-layer safety evaluation.</strong> Navigation regulation, visual-blind-zone protection, and force-feedback response time.
-            </figcaption>
-          </figure>
+        <div class="experiment-summary">
+          <h3>Request-order adaptation</h3>
+          <p>RoboAssist reached 81.25% success across 16 trials, with 66.9% lower update latency and 43.0% lower token use than FullReplan.</p>
         </div>
       </div>
     </section>
 
     <section class="section" id="runtime-safety">
-      <div class="container is-max-widescreen">
+      <div class="container is-max-desktop">
         <div class="section-heading has-text-centered">
-          <p class="eyebrow">Cross-layer protection</p>
           <h2 class="title is-3">Runtime Safety</h2>
-          <p class="section-lead">Three layers provide progressively stronger intervention authority from command regulation to latched emergency stop.</p>
+          <p class="section-lead">Three safety layers regulate navigation and handover behavior, with independent whole-body supervision.</p>
         </div>
 
-        <div class="safety-stack">
-          <article class="safety-layer">
-            <div class="safety-badge">L1</div>
-            <div>
-              <h3>Preventive navigation regulation</h3>
-              <p>Surgeon-aware clearance constraints decelerate the robot near the protected operating region and stop motion at its boundary.</p>
-            </div>
-            <span class="authority-tag">Regulate</span>
-          </article>
-          <article class="safety-layer">
-            <div class="safety-badge safety-badge--mid">L2</div>
-            <div>
-              <h3>Reactive handover regulation</h3>
-              <p>Unexpected proximity or human motion interrupts the nominal handover and triggers an avoidance response before resumption.</p>
-            </div>
-            <span class="authority-tag">Interrupt</span>
-          </article>
-          <article class="safety-layer safety-layer--strong">
-            <div class="safety-badge safety-badge--strong">L3</div>
-            <div>
-              <h3>Whole-body runtime supervision</h3>
-              <p>Force, joint-velocity, and persistent-oscillation anomalies terminate the active skill and latch an emergency stop until external recovery.</p>
-            </div>
-            <span class="authority-tag">E-STOP</span>
-          </article>
-        </div>
+        <figure class="safety-architecture">
+          <img src="./static/images/runtime-safety-architecture.png" alt="RoboAssist cross-layer safety architecture covering surgeon-aware navigation, VLA handover regulation, and whole-body runtime supervision." decoding="async">
+          <figcaption><strong>Cross-layer safety architecture.</strong> Preventive navigation, reactive handover regulation, and fail-safe whole-body supervision.</figcaption>
+        </figure>
 
-        <div class="safety-result">
-          <div>
-            <span class="safety-result__number">5/5</span>
-            <span>timely protective responses with runtime supervision in visual-blind-zone tests</span>
-          </div>
-          <div>
-            <span class="safety-result__number">20.11 ms</span>
-            <span>mean measured force-feedback response time</span>
-          </div>
-          <div>
-            <span class="safety-result__number">4.833 s</span>
-            <span>mean measured VLM-pathway response time</span>
-          </div>
-        </div>
+        <figure class="safety-evaluation">
+          <img src="./static/images/experiment-safety.png" alt="Cross-layer safety evaluation showing the navigation profile, protective response rate, and pathway response times." decoding="async">
+          <figcaption><strong>Cross-layer safety evaluation.</strong> Runtime supervision improved timely visual-blind-zone responses from 2/5 to 5/5; mean response times were 20.11 ms for force feedback and 4.833 s for the VLM pathway.</figcaption>
+        </figure>
       </div>
     </section>
 
     <section class="section section--tinted" id="bibtex">
       <div class="container is-max-desktop content">
-        <div class="bibtex-heading">
-          <div>
-            <p class="eyebrow">Citation</p>
-            <h2 class="title is-3">BibTeX</h2>
-          </div>
-          <button class="button copy-button" id="copy-bibtex" type="button" aria-describedby="copy-status">Copy BibTeX</button>
-        </div>
+        <h2 class="title is-3 bibtex-title">BibTeX</h2>
         <pre class="bibtex-block"><code id="bibtex-code">@misc{roboassistTODO,
   title  = {RoboAssist: Interactive Human--Humanoid Planning for
             Long-Horizon Surgical Assistance},
@@ -210,7 +167,6 @@
   year   = {TODO},
   url    = {TODO}
 }</code></pre>
-        <p class="sr-only" id="copy-status" aria-live="polite"></p>
         <div class="sr-only" aria-hidden="true">
           <span id="paper-todo">Paper link TODO</span>
           <span id="code-todo">Code link TODO</span>
