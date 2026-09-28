@@ -21,10 +21,9 @@
     <section class="hero project-hero">
       <div class="hero-body">
         <div class="container is-max-desktop has-text-centered">
-          <div class="project-mark" aria-hidden="true">
+          <div class="project-mark" aria-label="RoboAssist">
+            <img class="project-mark__logo" src="./static/images/roboassist-logo.png" alt="RoboAssist humanoid robot logo">
             <span class="project-mark__word">RoboAssist</span>
-            <span class="project-mark__rule"></span>
-            <span class="project-mark__meta">Human–Humanoid Surgical Assistance</span>
           </div>
 
           <h1 class="title publication-title">
@@ -213,20 +212,13 @@
   year   = {TODO},
   url    = {TODO}
 }</code></pre>
-        <p class="copy-status" id="copy-status" aria-live="polite">Authors and publication metadata are pending.</p>
+        <p class="sr-only" id="copy-status" aria-live="polite"></p>
+        <div class="sr-only" aria-hidden="true">
+          <span id="paper-todo">Paper link TODO</span>
+          <span id="code-todo">Code link TODO</span>
+        </div>
       </div>
     </section>
   </main>
-
-  <footer class="footer project-footer">
-    <div class="container is-max-desktop has-text-centered">
-      <p><strong>RoboAssist</strong> · Interactive Human–Humanoid Planning for Long-Horizon Surgical Assistance</p>
-      <p class="attribution">Website structure adapted from <a href="https://github.com/RoboNurse-VLA/robonurse-vla.github.io">RoboNurse-VLA</a>, whose template credits <a href="https://github.com/nerfies/nerfies.github.io">NeRFies</a> and <a href="https://github.com/voxposer/voxposer.github.io">VoxPoser</a>. Released under the included MIT License.</p>
-      <div class="sr-only" aria-hidden="true">
-        <span id="paper-todo">Paper link TODO</span>
-        <span id="code-todo">Code link TODO</span>
-      </div>
-    </div>
-  </footer>
 </body>
 </html>
