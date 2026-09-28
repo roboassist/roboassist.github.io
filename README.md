@@ -6,11 +6,8 @@ The site is a framework-free GitHub Pages project built with HTML, CSS, and Java
 
 ## Pending materials
 
-- Authors and affiliations
 - Paper and code links
-- Main demo video
-- High-resolution system overview figure
-- Final experiment figures, captions, and downloadable data
+- Project video
 - Complete BibTeX metadata
 
-To add the main demo, place the video in the repository (for example, `static/videos/main-demo.mp4`) and replace `data-src="TODO"` on `#main-demo-video` in `index.html`.
+To add the project video, place it in the repository (for example, `static/videos/main-demo.mp4`) and replace `data-src="TODO"` on `#main-demo-video` in `index.html`.

@@ -31,11 +31,6 @@
             RoboAssist: Interactive Human–Humanoid Planning for Long-Horizon Surgical Assistance
           </h1>
 
-          <div class="publication-authors" aria-label="Authors and affiliations">
-            <p class="author-line"><span class="todo-inline">Authors: TODO</span></p>
-            <p class="affiliation-line"><span class="todo-inline">Affiliations: TODO</span></p>
-          </div>
-
           <nav class="publication-links" aria-label="Project resources">
             <a class="button resource-button" href="#paper-todo" aria-label="Paper link pending">
               <span class="resource-icon" aria-hidden="true">PDF</span>
@@ -47,7 +42,7 @@
               <span>Code</span>
               <span class="todo-chip">TODO</span>
             </a>
-            <a class="button resource-button" href="#video-todo" aria-label="Video link pending">
+            <a class="button resource-button" href="#video" aria-label="Video link pending">
               <span class="resource-icon resource-icon--play" aria-hidden="true">▶</span>
               <span>Video</span>
               <span class="todo-chip">TODO</span>
@@ -57,36 +52,11 @@
       </div>
     </section>
 
-    <section class="section section--first" id="main-demo">
-      <div class="container is-max-desktop">
-        <div class="section-heading has-text-centered">
-          <p class="eyebrow">Main Demo</p>
-          <h2 class="title is-3">Long-horizon surgical assistance</h2>
-          <p class="section-lead">RoboAssist coordinates perception, planning, navigation, manipulation, and handover while the surgical workflow evolves.</p>
-        </div>
-
-        <div class="publication-video demo-frame" id="video-todo">
-          <!-- Set data-src to the final MP4 path. The script will reveal the video automatically. -->
-          <video id="main-demo-video" data-src="TODO" controls muted loop playsinline preload="metadata" hidden>
-            <track kind="captions" srclang="en" label="English captions">
-          </video>
-          <div class="media-placeholder" id="main-demo-placeholder" role="img" aria-label="Main demo video placeholder">
-            <span class="media-placeholder__icon" aria-hidden="true">▶</span>
-            <div>
-              <strong>Main demo video</strong>
-              <span>TODO · MP4 or hosted video URL</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--tinted" id="abstract">
+    <section class="section section--first section--tinted" id="abstract">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column is-four-fifths">
             <div class="section-heading has-text-centered">
-              <p class="eyebrow">Paper</p>
               <h2 class="title is-3">Abstract</h2>
             </div>
             <div class="content abstract-copy">
@@ -102,112 +72,75 @@
       </div>
     </section>
 
-    <section class="section" id="system-overview">
-      <div class="container is-max-widescreen">
+    <section class="section" id="framework">
+      <div class="container is-max-desktop">
         <div class="section-heading has-text-centered">
-          <p class="eyebrow">Architecture</p>
-          <h2 class="title is-3">System Overview</h2>
-          <p class="section-lead">An asymmetric dual-track representation aligns partially observed human progress with executable robot tasks and repairs only the affected plan suffix.</p>
+          <h2 class="title is-3">RoboAssist Framework</h2>
         </div>
 
-        <div class="system-flow" aria-label="RoboAssist system flow">
-          <article class="flow-card">
-            <span class="flow-index">01</span>
-            <h3>Interaction Context</h3>
-            <p>Voice instructions, scene observations, workflow knowledge, and task memory update the shared context.</p>
-          </article>
-          <span class="flow-arrow" aria-hidden="true">→</span>
-          <article class="flow-card flow-card--accent">
-            <span class="flow-index">02</span>
-            <h3>Interactive Planning</h3>
-            <p>Human-process estimates and robot tasks remain separate, connected by evidence-based execution gates.</p>
-          </article>
-          <span class="flow-arrow" aria-hidden="true">→</span>
-          <article class="flow-card">
-            <span class="flow-index">03</span>
-            <h3>Skill Execution</h3>
-            <p>A unified dispatcher invokes navigation, grasp, hold, placement, and handover skills.</p>
-          </article>
-          <span class="flow-arrow" aria-hidden="true">→</span>
-          <article class="flow-card">
-            <span class="flow-index">04</span>
-            <h3>Robot &amp; Human</h3>
-            <p>Execution feedback updates memory and enables online alignment, waiting, interruption, and replanning.</p>
-          </article>
+        <figure class="framework-figure">
+          <img src="./static/images/roboassist-framework.png" alt="RoboAssist framework integrating interaction context, interactive planning, skill execution, and runtime safety constraints.">
+        </figure>
+
+        <p class="framework-description">
+          <strong>Overview of RoboAssist:</strong> RoboAssist is an agent-based framework for long-horizon human–humanoid surgical assistance. Human instructions and scene observations update workflow knowledge and task memory, while an LLM-driven agent aligns partially observed human-process states with executable robot tasks through evidence gates. When requirements change, the agent preserves the valid task prefix and replans only the affected suffix, then dispatches navigation, grasping, placement, and handover skills under continuous runtime safety constraints.
+        </p>
+      </div>
+    </section>
+
+    <section class="section section--tinted" id="video">
+      <div class="container is-max-desktop">
+        <div class="section-heading has-text-centered">
+          <h2 class="title is-3">Video</h2>
         </div>
 
-        <div class="overview-note">
-          <div>
-            <span class="note-label">Core mechanism</span>
-            <strong>Observation-grounded residual replanning</strong>
+        <div class="publication-video demo-frame" id="video-todo">
+          <!-- Set data-src to the final MP4 path. The script will reveal the video automatically. -->
+          <video id="main-demo-video" data-src="TODO" controls muted loop playsinline preload="metadata" hidden></video>
+          <div class="media-placeholder" id="main-demo-placeholder" role="img" aria-label="RoboAssist video placeholder">
+            <span class="media-placeholder__icon" aria-hidden="true">▶</span>
+            <div>
+              <strong>RoboAssist video</strong>
+              <span>TODO · MP4 or hosted video URL</span>
+            </div>
           </div>
-          <p>Validated execution history is preserved while the earliest affected unfinished task and its dependent suffix are regenerated.</p>
-        </div>
-
-        <div class="asset-slot" role="note">
-          <strong>System figure: TODO</strong>
-          <span>Replace this slot with the final high-resolution system overview figure.</span>
         </div>
       </div>
     </section>
 
-    <section class="section section--tinted" id="experiments">
-      <div class="container is-max-widescreen">
+    <section class="section" id="experiments">
+      <div class="container is-max-desktop">
         <div class="section-heading has-text-centered">
-          <p class="eyebrow">Evaluation</p>
-          <h2 class="title is-3">Experiments</h2>
-          <p class="section-lead">Unitree G1 experiments cover single-object handovers, continuous two-object workflows, dynamic request changes, scene perturbations, and safety interventions.</p>
+          <h2 class="title is-3">Experiment Result</h2>
         </div>
 
-        <div class="metrics-grid">
-          <article class="metric-card">
-            <p class="metric-label">Single-object handover</p>
-            <p class="metric-value">14/15</p>
-            <p>successful trials with RoboAssist, compared with 12/15 for both task-matched baselines.</p>
-          </article>
-          <article class="metric-card">
-            <p class="metric-label">Two-object workflow</p>
-            <p class="metric-value">6/7</p>
-            <p>successful long-horizon workflows, versus 5/7 for the reactive agent and 4/7 for the scripted FSM.</p>
-          </article>
-          <article class="metric-card">
-            <p class="metric-label">Dynamic adaptation</p>
-            <p class="metric-value">7/10</p>
-            <p>successful perturbed episodes, versus 5/10 for the reactive agent and 0/10 for the scripted FSM.</p>
-          </article>
-        </div>
-
-        <div class="results-panel">
-          <div class="results-copy">
-            <h3 class="title is-4">Task execution and adaptation</h3>
-            <p>RoboAssist shows its clearest advantage when the requested workflow order changes: it succeeds in 5/6 episodes, compared with 3/6 for the reactive agent. Under object displacement, both agent-based methods succeed in 2/4 episodes, indicating that manipulation robustness and adaptation to difficult scene changes remain open challenges.</p>
-            <p class="result-note">All reported values are transcribed from the provided manuscript. Final publication figures and downloadable data: <strong>TODO</strong>.</p>
-          </div>
-
-          <div class="bar-chart" aria-label="Dynamic task success comparison">
-            <p class="chart-title">Dynamic task success</p>
-            <div class="bar-row">
-              <span>RoboAssist</span>
-              <div class="bar-track"><span class="bar-fill bar-fill--ours" style="width: 70%"></span></div>
-              <strong>70%</strong>
+        <div class="experiment-grid">
+          <figure class="result-figure">
+            <div class="result-figure__media result-figure__media--portrait">
+              <img src="./static/images/experiment-task-performance.png" alt="Task success rates and sequential subtask completion for RoboAssist and comparison methods." decoding="async">
             </div>
-            <div class="bar-row">
-              <span>Reactive agent</span>
-              <div class="bar-track"><span class="bar-fill" style="width: 50%"></span></div>
-              <strong>50%</strong>
-            </div>
-            <div class="bar-row">
-              <span>Scripted FSM</span>
-              <div class="bar-track"><span class="bar-fill" style="width: 0%"></span></div>
-              <strong>0%</strong>
-            </div>
-            <p class="chart-caption">10 perturbed episodes per method.</p>
-          </div>
-        </div>
+            <figcaption>
+              <strong>Task execution performance.</strong> Task success and sequential subtask completion for single-item transfer and long-horizon surgical assistance.
+            </figcaption>
+          </figure>
 
-        <div class="asset-slot" role="note">
-          <strong>Experiment media: TODO</strong>
-          <span>Add final figures, captions, and representative workflow clips here.</span>
+          <figure class="result-figure">
+            <div class="result-figure__media result-figure__media--wide">
+              <img src="./static/images/experiment-workflow-time.png" alt="Workflow completion-time distributions for four planning methods." decoding="async">
+            </div>
+            <figcaption>
+              <strong>Workflow completion time.</strong> Completion-time distributions over five successful multi-object runs per method.
+            </figcaption>
+          </figure>
+
+          <figure class="result-figure result-figure--centered">
+            <div class="result-figure__media result-figure__media--square">
+              <img src="./static/images/experiment-safety.png" alt="Cross-layer safety evaluation for navigation, protective responses, and response times." decoding="async">
+            </div>
+            <figcaption>
+              <strong>Cross-layer safety evaluation.</strong> Navigation regulation, visual-blind-zone protection, and force-feedback response time.
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
