@@ -79,7 +79,7 @@ a {
   color: #363636;
   font-family: "Google Sans", "Noto Sans", sans-serif;
   font-size: clamp(3rem, 5.5vw, 5rem) !important;
-  font-weight: 400;
+  font-weight: 400 !important;
   letter-spacing: -0.03em;
   line-height: 1.06;
   margin: 0 auto 2.3rem !important;
@@ -331,28 +331,57 @@ a {
   color: var(--ink);
 }
 
-.experiment-summary {
+.adaptation-summary {
   border-bottom: 1px solid var(--line);
   border-top: 1px solid var(--line);
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: minmax(180px, 0.35fr) 1fr;
   margin-top: 3rem;
-  padding: 1.6rem 0;
+  padding: 1.5rem 0;
 }
 
-.experiment-summary h3 {
+.adaptation-summary h3 {
   color: var(--ink);
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 600;
-  margin: 0;
+  margin: 0 0 1.15rem;
+  text-align: center;
 }
 
-.experiment-summary p {
+.adaptation-summary h3 span {
   color: var(--muted);
-  font-size: 0.94rem;
-  line-height: 1.7;
-  margin: 0;
+  font-weight: 400;
+}
+
+.adaptation-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.adaptation-metrics > div {
+  padding: 0.15rem 1rem;
+  text-align: center;
+}
+
+.adaptation-metrics > div + div {
+  border-left: 1px solid var(--line);
+}
+
+.adaptation-metrics strong,
+.adaptation-metrics span {
+  display: block;
+}
+
+.adaptation-metrics strong {
+  color: var(--blue-deep);
+  font-family: "Google Sans", "Noto Sans", sans-serif;
+  font-size: 1.55rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.adaptation-metrics span {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-top: 0.28rem;
 }
 
 .system-flow {
@@ -609,7 +638,7 @@ a {
 }
 
 .bibtex-block {
-  background: #f8faff !important;
+  background: #ffffff !important;
   border: 1px solid var(--line);
   border-radius: 0.8rem;
   color: #2f394c !important;
@@ -686,11 +715,6 @@ a {
     grid-template-columns: 1fr;
   }
 
-  .experiment-summary {
-    gap: 0.6rem;
-    grid-template-columns: 1fr;
-  }
-
   .result-figure--centered {
     grid-column: auto;
   }
@@ -707,6 +731,18 @@ a {
 }
 
 @media (max-width: 520px) {
+  .adaptation-metrics > div {
+    padding: 0.15rem 0.35rem;
+  }
+
+  .adaptation-metrics strong {
+    font-size: 1.3rem;
+  }
+
+  .adaptation-metrics span {
+    font-size: 0.78rem;
+  }
+
   .publication-links {
     align-items: stretch;
     flex-direction: column;

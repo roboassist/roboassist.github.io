@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,500,700%7CNoto+Sans:400,500,600,700%7CSource+Serif+4:600&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/index.css?v=20260929-1">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23586f9c'/%3E%3Cpath d='M17 17h16c9 0 15 5 15 13 0 6-3 10-8 12l9 12H37l-7-10h-2v10H17V17zm11 9v10h5c3 0 5-2 5-5s-2-5-5-5h-5z' fill='white'/%3E%3C/svg%3E">
   <script defer src="./static/js/index.js"></script>
 </head>
@@ -131,10 +131,24 @@
           </figure>
         </div>
 
-        <div class="experiment-summary">
-          <h3>Request-order adaptation</h3>
-          <p>RoboAssist reached 81.25% success across 16 trials, with 66.9% lower update latency and 43.0% lower token use than FullReplan.</p>
+        <div class="adaptation-summary">
+          <h3>Request-order adaptation <span>vs. FullReplan</span></h3>
+          <div class="adaptation-metrics">
+            <div>
+              <strong>81.25%</strong>
+              <span>success · 16 trials</span>
+            </div>
+            <div>
+              <strong>−66.9%</strong>
+              <span>update latency</span>
+            </div>
+            <div>
+              <strong>−43.0%</strong>
+              <span>token use</span>
+            </div>
+          </div>
         </div>
+
       </div>
     </section>
 
@@ -142,7 +156,6 @@
       <div class="container is-max-desktop">
         <div class="section-heading has-text-centered">
           <h2 class="title is-3">Runtime Safety</h2>
-          <p class="section-lead">Three safety layers regulate navigation and handover behavior, with independent whole-body supervision.</p>
         </div>
 
         <figure class="safety-architecture">
