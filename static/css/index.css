@@ -78,12 +78,12 @@ a {
 .publication-title {
   color: #363636;
   font-family: "Google Sans", "Noto Sans", sans-serif;
-  font-size: clamp(3rem, 5.5vw, 5rem) !important;
+  font-size: clamp(2.75rem, 4.1vw, 3.7rem) !important;
   font-weight: 400 !important;
   letter-spacing: -0.03em;
   line-height: 1.06;
   margin: 0 auto 2.3rem !important;
-  max-width: 1120px;
+  max-width: 1180px;
 }
 
 .publication-authors {
@@ -697,6 +697,10 @@ a {
   .publication-title {
     font-size: clamp(2.4rem, 11vw, 3.35rem) !important;
     line-height: 1.08;
+  }
+
+  .publication-title__break {
+    display: none;
   }
 
   .section {
