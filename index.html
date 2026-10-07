@@ -12,9 +12,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,500,700%7CNoto+Sans:400,500,600,700%7CSource+Serif+4:600&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/index.css?v=20260930-1">
+  <link rel="stylesheet" href="./static/css/index.css?v=20261007-1">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23586f9c'/%3E%3Cpath d='M17 17h16c9 0 15 5 15 13 0 6-3 10-8 12l9 12H37l-7-10h-2v10H17V17zm11 9v10h5c3 0 5-2 5-5s-2-5-5-5h-5z' fill='white'/%3E%3C/svg%3E">
-  <script defer src="./static/js/index.js"></script>
+  <script defer src="./static/js/index.js?v=20261007-1"></script>
 </head>
 <body>
   <main>
@@ -49,6 +49,23 @@
         </div>
       </div>
     </section>
+
+    <nav class="chapter-nav" aria-label="Project chapters">
+      <div class="chapter-nav__inner">
+        <a class="chapter-nav__link is-active" href="#abstract" data-chapter-link aria-current="true">
+          <span class="chapter-nav__number">01</span>
+          <span>Long-Horizon Assistance</span>
+        </a>
+        <a class="chapter-nav__link" href="#framework" data-chapter-link>
+          <span class="chapter-nav__number">02</span>
+          <span>Interactive Planning</span>
+        </a>
+        <a class="chapter-nav__link" href="#runtime-safety" data-chapter-link>
+          <span class="chapter-nav__number">03</span>
+          <span>Cross-Layer Safety</span>
+        </a>
+      </div>
+    </nav>
 
     <section class="section section--first section--tinted" id="abstract">
       <div class="container is-max-desktop">
@@ -159,10 +176,104 @@
           <h2 class="title is-3">Runtime Safety</h2>
         </div>
 
-        <figure class="safety-architecture">
-          <img src="./static/images/runtime-safety-architecture.png" alt="RoboAssist cross-layer safety architecture covering surgeon-aware navigation, VLA handover regulation, and whole-body runtime supervision." decoding="async">
-          <figcaption><strong>Cross-layer safety architecture.</strong> Preventive navigation, reactive handover regulation, and fail-safe whole-body supervision.</figcaption>
-        </figure>
+        <div class="safety-stepper" data-safety-stepper>
+          <div class="safety-tabs" role="tablist" aria-label="Cross-layer safety levels">
+            <button class="safety-tab is-active" id="safety-tab-prevent" type="button" role="tab" aria-selected="true" aria-controls="safety-panel-prevent" tabindex="0" data-safety-level="prevent">
+              <span>1</span>
+              Prevent
+            </button>
+            <button class="safety-tab" id="safety-tab-regulate" type="button" role="tab" aria-selected="false" aria-controls="safety-panel-regulate" tabindex="-1" data-safety-level="regulate">
+              <span>2</span>
+              Regulate
+            </button>
+            <button class="safety-tab" id="safety-tab-override" type="button" role="tab" aria-selected="false" aria-controls="safety-panel-override" tabindex="-1" data-safety-level="override">
+              <span>3</span>
+              Override
+            </button>
+          </div>
+
+          <div class="safety-stepper__body">
+            <div class="safety-panels">
+              <section class="safety-panel is-active" id="safety-panel-prevent" role="tabpanel" aria-labelledby="safety-tab-prevent" aria-hidden="false" data-safety-panel="prevent">
+                <p class="safety-panel__level">Level 1 · Prevent</p>
+                <h3>Preventive surgeon-aware navigation regulation</h3>
+                <ol class="safety-flow safety-flow--three" aria-label="Preventive navigation sequence">
+                  <li class="safety-step">
+                    <strong>Far</strong>
+                    <span>Nominal speed</span>
+                  </li>
+                  <li class="safety-step">
+                    <strong>Near Boundary</strong>
+                    <span>Slowed speed</span>
+                  </li>
+                  <li class="safety-step safety-step--stop">
+                    <strong>Stop</strong>
+                    <span>Boundary / contact</span>
+                  </li>
+                </ol>
+                <p class="safety-region">Protected operating region <strong>Ω<sub>op</sub></strong></p>
+              </section>
+
+              <section class="safety-panel" id="safety-panel-regulate" role="tabpanel" aria-labelledby="safety-tab-regulate" aria-hidden="true" data-safety-panel="regulate" hidden>
+                <p class="safety-panel__level">Level 2 · Regulate</p>
+                <h3>Reactive interaction regulation for VLA handover</h3>
+                <ol class="safety-flow safety-flow--four" aria-label="Reactive handover sequence">
+                  <li class="safety-step">
+                    <strong>Nominal handover</strong>
+                  </li>
+                  <li class="safety-step safety-step--risk">
+                    <strong>Risk detected</strong>
+                  </li>
+                  <li class="safety-step">
+                    <strong>Avoid / separate</strong>
+                  </li>
+                  <li class="safety-step">
+                    <strong>Resume</strong>
+                  </li>
+                </ol>
+              </section>
+
+              <section class="safety-panel" id="safety-panel-override" role="tabpanel" aria-labelledby="safety-tab-override" aria-hidden="true" data-safety-panel="override" hidden>
+                <p class="safety-panel__level">Level 3 · Override</p>
+                <h3>Fail-safe whole-body runtime supervision</h3>
+                <ol class="safety-flow safety-flow--four" aria-label="Fail-safe runtime supervision sequence">
+                  <li class="safety-step safety-step--monitors">
+                    <strong>Monitor unsafe states</strong>
+                    <span>Force feedback</span>
+                    <span>Joint velocity</span>
+                    <span>Joint oscillation</span>
+                  </li>
+                  <li class="safety-step safety-step--anomaly">
+                    <strong>Anomaly</strong>
+                  </li>
+                  <li class="safety-step safety-step--risk">
+                    <strong>E-STOP</strong>
+                  </li>
+                  <li class="safety-step safety-step--latched">
+                    <strong>Latched</strong>
+                  </li>
+                </ol>
+              </section>
+            </div>
+
+            <aside class="safety-authority" aria-label="Increasing intervention authority">
+              <p>Increasing Intervention Authority</p>
+              <ol>
+                <li class="is-current" data-authority-level="prevent"><span>1</span>Prevent</li>
+                <li data-authority-level="regulate"><span>2</span>Regulate</li>
+                <li class="safety-authority__highest" data-authority-level="override"><span>3</span>Override<small>Highest authority</small></li>
+              </ol>
+            </aside>
+          </div>
+        </div>
+
+        <details class="safety-original">
+          <summary>View original architecture figure</summary>
+          <figure class="safety-architecture">
+            <img src="./static/images/runtime-safety-architecture.png" alt="RoboAssist cross-layer safety architecture covering surgeon-aware navigation, VLA handover regulation, and whole-body runtime supervision." decoding="async">
+            <figcaption><strong>Cross-layer safety architecture.</strong> Preventive navigation, reactive handover regulation, and fail-safe whole-body supervision.</figcaption>
+          </figure>
+        </details>
 
         <figure class="safety-evaluation">
           <img src="./static/images/experiment-safety.png" alt="Cross-layer safety evaluation showing the navigation profile, protective response rate, and pathway response times." decoding="async">
