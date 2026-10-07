@@ -120,4 +120,51 @@ document.addEventListener("DOMContentLoaded", () => {
     chapterSections.forEach((section) => chapterObserver.observe(section));
   }
 
+  const faqList = document.querySelector("[data-faq-list]");
+
+  if (faqList) {
+    const questions = Array.from(faqList.querySelectorAll(".faq-question"));
+
+    const setFaqState = (question, open) => {
+      const answer = document.getElementById(question.getAttribute("aria-controls"));
+      if (!answer) return;
+
+      question.setAttribute("aria-expanded", String(open));
+      question.closest(".faq-item")?.classList.toggle("is-open", open);
+
+      if (reducedMotion.matches) {
+        answer.style.height = open ? "auto" : "0px";
+        answer.style.opacity = open ? "1" : "0";
+        return;
+      }
+
+      if (open) {
+        answer.style.height = `${answer.scrollHeight}px`;
+        answer.style.opacity = "1";
+        answer.addEventListener("transitionend", () => {
+          if (question.getAttribute("aria-expanded") === "true") answer.style.height = "auto";
+        }, { once: true });
+      } else {
+        if (answer.style.height === "auto") answer.style.height = `${answer.scrollHeight}px`;
+        requestAnimationFrame(() => {
+          answer.style.height = "0px";
+          answer.style.opacity = "0";
+        });
+      }
+    };
+
+    questions.forEach((question) => {
+      const answer = document.getElementById(question.getAttribute("aria-controls"));
+      if (answer) {
+        answer.style.height = "0px";
+        answer.style.opacity = "0";
+      }
+
+      question.addEventListener("click", () => {
+        const shouldOpen = question.getAttribute("aria-expanded") !== "true";
+        questions.forEach((candidate) => setFaqState(candidate, candidate === question && shouldOpen));
+      });
+    });
+  }
+
 });

@@ -60,6 +60,7 @@ a {
   justify-content: center;
   padding: 0.9rem 1rem 0.82rem;
   position: relative;
+  text-decoration: none;
   transition: color 180ms ease, background-color 180ms ease;
 }
 
@@ -81,6 +82,7 @@ a {
 .chapter-nav__link.is-active {
   background: linear-gradient(180deg, rgba(233, 238, 248, 0.55), rgba(238, 235, 247, 0.2));
   color: var(--blue-deep);
+  text-decoration: none;
 }
 
 .chapter-nav__link.is-active::after {
@@ -1008,6 +1010,169 @@ a {
   width: 100%;
 }
 
+.scope-grid {
+  display: grid;
+  gap: 1.4rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.scope-column {
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  padding: clamp(1.5rem, 3vw, 2.3rem);
+}
+
+.scope-column--scope {
+  background: #eef5fb;
+  border-top: 4px solid var(--blue);
+}
+
+.scope-column--limitations {
+  background: #f3f1f7;
+  border-top: 4px solid var(--purple);
+}
+
+.scope-column__eyebrow {
+  color: var(--blue-deep);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  margin: 0 0 1.5rem;
+  text-transform: uppercase;
+}
+
+.scope-column--limitations .scope-column__eyebrow {
+  color: var(--purple);
+}
+
+.scope-item + .scope-item {
+  border-top: 1px solid rgba(92, 108, 140, 0.16);
+  margin-top: 1.35rem;
+  padding-top: 1.35rem;
+}
+
+.scope-item h3 {
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
+  margin: 0 0 0.45rem;
+}
+
+.scope-item p {
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.scope-limitations-copy {
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.85;
+  margin: 0;
+}
+
+.faq-list {
+  border-top: 1px solid var(--line);
+  margin: 0 auto;
+  max-width: 880px;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq-item h3 {
+  margin: 0;
+}
+
+.faq-question {
+  align-items: center;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: var(--ink);
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  font-size: 1.05rem;
+  font-weight: 600;
+  gap: 1rem;
+  justify-content: space-between;
+  line-height: 1.45;
+  padding: 1.35rem 0.25rem;
+  text-align: left;
+  width: 100%;
+}
+
+.faq-question:hover,
+.faq-question:focus-visible,
+.faq-question[aria-expanded="true"] {
+  color: var(--blue-deep);
+}
+
+.faq-question:focus-visible {
+  border-radius: 0.35rem;
+  outline: 3px solid rgba(88, 111, 156, 0.24);
+  outline-offset: 3px;
+}
+
+.faq-icon {
+  border: 1px solid #b9c4d8;
+  border-radius: 50%;
+  flex: 0 0 1.75rem;
+  height: 1.75rem;
+  position: relative;
+  transition: background-color 400ms ease, border-color 400ms ease;
+  width: 1.75rem;
+}
+
+.faq-icon::before,
+.faq-icon::after {
+  background: currentColor;
+  content: "";
+  height: 1px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 400ms ease, opacity 400ms ease;
+  width: 0.65rem;
+}
+
+.faq-icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.faq-question[aria-expanded="true"] .faq-icon {
+  background: #eef2fa;
+  border-color: var(--blue);
+}
+
+.faq-question[aria-expanded="true"] .faq-icon::after {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.faq-answer {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: height 400ms ease, opacity 400ms ease;
+}
+
+.faq-answer__inner {
+  color: var(--muted);
+  line-height: 1.75;
+  max-width: 790px;
+  padding: 0 3.25rem 1.5rem 0.25rem;
+}
+
+.faq-answer__inner p {
+  margin: 0;
+}
+
 .bibtex-title {
   margin-bottom: 1rem !important;
 }
@@ -1103,6 +1268,33 @@ a {
 
   .safety-authority ol {
     grid-template-columns: 1fr;
+  }
+
+  .scope-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .scope-column {
+    padding: 1.35rem;
+  }
+
+  .faq-question {
+    font-size: 0.97rem;
+    padding: 1.15rem 0;
+  }
+
+  .faq-answer__inner {
+    font-size: 0.94rem;
+    padding: 0 0 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-answer,
+  .faq-icon,
+  .faq-icon::before,
+  .faq-icon::after {
+    transition: none !important;
   }
 }
 

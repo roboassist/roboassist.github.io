@@ -12,9 +12,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,500,700%7CNoto+Sans:400,500,600,700%7CSource+Serif+4:600&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/index.css?v=20261007-1">
+  <link rel="stylesheet" href="./static/css/index.css?v=20261007-2">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23586f9c'/%3E%3Cpath d='M17 17h16c9 0 15 5 15 13 0 6-3 10-8 12l9 12H37l-7-10h-2v10H17V17zm11 9v10h5c3 0 5-2 5-5s-2-5-5-5h-5z' fill='white'/%3E%3C/svg%3E">
-  <script defer src="./static/js/index.js?v=20261007-1"></script>
+  <script defer src="./static/js/index.js?v=20261007-2"></script>
 </head>
 <body>
   <main>
@@ -173,7 +173,7 @@
     <section class="section" id="runtime-safety">
       <div class="container is-max-desktop">
         <div class="section-heading has-text-centered">
-          <h2 class="title is-3">Runtime Safety</h2>
+          <h2 class="title is-3">Cross-Layer Safety</h2>
         </div>
 
         <div class="safety-stepper" data-safety-stepper>
@@ -279,6 +279,80 @@
           <img src="./static/images/experiment-safety.png" alt="Cross-layer safety evaluation showing the navigation profile, protective response rate, and pathway response times." decoding="async">
           <figcaption><strong>Cross-layer safety evaluation.</strong> Runtime supervision improved timely visual-blind-zone responses from 2/5 to 5/5; mean response times were 20.11 ms for force feedback and 4.833 s for the VLM pathway.</figcaption>
         </figure>
+      </div>
+    </section>
+
+    <section class="section section--tinted" id="scope-limitations">
+      <div class="container is-max-desktop">
+        <div class="section-heading has-text-centered">
+          <h2 class="title is-3">Scope and Limitations</h2>
+        </div>
+
+        <div class="scope-grid">
+          <article class="scope-column scope-column--scope">
+            <p class="scope-column__eyebrow">Our Scope</p>
+            <div class="scope-item">
+              <h3>Long-horizon human–humanoid assistance</h3>
+              <p>Coordinates multi-stage assistance as requests and scenes evolve.</p>
+            </div>
+            <div class="scope-item">
+              <h3>Task-level planning</h3>
+              <p>Plans tasks while robot motion remains skill-based.</p>
+            </div>
+            <div class="scope-item">
+              <h3>Interactive alignment and replanning</h3>
+              <p>Aligns human-process states with robot tasks through evidence gates.</p>
+            </div>
+            <div class="scope-item">
+              <h3>Cross-layer safety</h3>
+              <p>Covers navigation, handover, and whole-body execution.</p>
+            </div>
+          </article>
+
+          <article class="scope-column scope-column--limitations">
+            <p class="scope-column__eyebrow">Current Limitations</p>
+            <p class="scope-limitations-copy">Evaluation is currently limited to simulated, non-clinical workflows. Final-checkpoint completion is 85.7%, without isolating planning failures from execution failures. Broader VLA training and more diverse workflows and environments remain necessary.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container is-max-desktop">
+        <div class="section-heading has-text-centered">
+          <h2 class="title is-3">FAQ</h2>
+        </div>
+
+        <div class="faq-list" data-faq-list>
+          <article class="faq-item">
+            <h3><button class="faq-question" id="faq-question-1" type="button" aria-expanded="false" aria-controls="faq-answer-1"><span>What problem does RoboAssist address?</span><span class="faq-icon" aria-hidden="true"></span></button></h3>
+            <div class="faq-answer" id="faq-answer-1" role="region" aria-labelledby="faq-question-1"><div class="faq-answer__inner"><p>RoboAssist targets long-horizon surgical assistance in which a humanoid robot must coordinate navigation, manipulation, material transport, and handover while human requests and workflow states may change during execution.</p></div></div>
+          </article>
+          <article class="faq-item">
+            <h3><button class="faq-question" id="faq-question-2" type="button" aria-expanded="false" aria-controls="faq-answer-2"><span>How is RoboAssist different from a conventional task planner?</span><span class="faq-icon" aria-hidden="true"></span></button></h3>
+            <div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-question-2"><div class="faq-answer__inner"><p>RoboAssist explicitly separates partially observed human-process states from executable robot tasks. These two tracks are connected through evidence-gated dependencies, allowing the robot to reason about human progress without treating predicted human actions as directly executable robot states.</p></div></div>
+          </article>
+          <article class="faq-item">
+            <h3><button class="faq-question" id="faq-question-3" type="button" aria-expanded="false" aria-controls="faq-answer-3"><span>What happens when the surgeon changes a request?</span><span class="faq-icon" aria-hidden="true"></span></button></h3>
+            <div class="faq-answer" id="faq-answer-3" role="region" aria-labelledby="faq-question-3"><div class="faq-answer__inner"><p>RoboAssist identifies the earliest affected unfinished task, preserves the still-valid prefix of the existing plan, and regenerates only the affected suffix. This residual replanning avoids unnecessarily rebuilding the entire remaining task sequence.</p></div></div>
+          </article>
+          <article class="faq-item">
+            <h3><button class="faq-question" id="faq-question-4" type="button" aria-expanded="false" aria-controls="faq-answer-4"><span>Can RoboAssist act only from predicted human intent?</span><span class="faq-icon" aria-hidden="true"></span></button></h3>
+            <div class="faq-answer" id="faq-answer-4" role="region" aria-labelledby="faq-question-4"><div class="faq-answer__inner"><p>No. Predicted human-process states may trigger task generation or preparatory actions, but predictions alone cannot satisfy an evidence gate. A human-process condition is confirmed only when its corresponding evidence criterion is satisfied.</p></div></div>
+          </article>
+          <article class="faq-item">
+            <h3><button class="faq-question" id="faq-question-5" type="button" aria-expanded="false" aria-controls="faq-answer-5"><span>Does the Agent directly control robot motion?</span><span class="faq-icon" aria-hidden="true"></span></button></h3>
+            <div class="faq-answer" id="faq-answer-5" role="region" aria-labelledby="faq-question-5"><div class="faq-answer__inner"><p>No. RoboAssist performs task-level planning. Low-level robot behavior is encapsulated in reusable parameterized skills such as navigation, grasping, placement, and handover, which are dispatched through the skill executor.</p></div></div>
+          </article>
+          <article class="faq-item">
+            <h3><button class="faq-question" id="faq-question-6" type="button" aria-expanded="false" aria-controls="faq-answer-6"><span>How does RoboAssist handle safety?</span><span class="faq-icon" aria-hidden="true"></span></button></h3>
+            <div class="faq-answer" id="faq-answer-6" role="region" aria-labelledby="faq-question-6"><div class="faq-answer__inner"><p>RoboAssist uses a three-layer safety architecture. Preventive navigation regulation slows or stops the robot near the surgeon's protected operating region; reactive interaction regulation can interrupt unsafe handover motion; and an independent runtime supervisor can trigger a latched emergency stop when abnormal force or joint-motion states are detected.</p></div></div>
+          </article>
+          <article class="faq-item">
+            <h3><button class="faq-question" id="faq-question-7" type="button" aria-expanded="false" aria-controls="faq-answer-7"><span>Is RoboAssist ready for clinical deployment?</span><span class="faq-icon" aria-hidden="true"></span></button></h3>
+            <div class="faq-answer" id="faq-answer-7" role="region" aria-labelledby="faq-question-7"><div class="faq-answer__inner"><p>Not yet. The current study evaluates RoboAssist in a simulated surgical-assistance setting on a Unitree G1 humanoid. Clinical deployment, broader workflow diversity, and validation under more varied interaction and environmental conditions remain outside the scope of the present evaluation.</p></div></div>
+          </article>
+        </div>
       </div>
     </section>
 
