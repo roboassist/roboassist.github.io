@@ -81,6 +81,15 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   silence(main);
   const overlayPlay = $(".mv-overlay-play");
+  function loadingSpinner() {
+    const spinner = el("span", "mv-loading-spinner");
+    spinner.setAttribute("role", "status");
+    spinner.setAttribute("aria-label", "Loading video");
+    spinner.hidden = true;
+    return spinner;
+  }
+  const mainSpinner = loadingSpinner();
+  $(".mv-main").append(mainSpinner);
   const stage = $(".mv-stage");
   const layer = $(".mv-aux-layer");
   const surface = $(".mv-surface");
@@ -249,7 +258,14 @@ document.addEventListener("DOMContentLoaded", () => {
   function setControls(enabled) {
     $(".mv-controls").querySelectorAll("button,input,select").forEach(node => { node.disabled = !enabled; });
     overlayPlay.disabled = !enabled;
-    overlayPlay.hidden = !enabled || (!main.paused && !main.ended);
+    updateLoadingUI();
+  }
+  function updateLoadingUI() {
+    const busy = dialog.open && !!main.getAttribute("src") && !main.error
+      && (main.readyState < 2 || main.seeking || buffering || startingPlayback || (stalled && playbackWanted));
+    mainSpinner.hidden = !busy;
+    $(".mv-main").setAttribute("aria-busy", String(busy));
+    overlayPlay.hidden = busy || overlayPlay.disabled || main.hidden || (!main.paused && !main.ended);
   }
   function updateControls() {
     const duration = Number.isFinite(main.duration) ? main.duration : 0;
@@ -260,7 +276,7 @@ document.addEventListener("DOMContentLoaded", () => {
     seek.setAttribute("aria-valuetext", `${clock(shownTime)} of ${clock(duration)}`);
     control("clock").textContent = `${clock(shownTime)} / ${clock(duration)}`;
     control("play").textContent = buffering && playbackWanted ? "Cancel" : main.paused || main.ended ? "Play" : "Pause";
-    overlayPlay.hidden = overlayPlay.disabled || main.hidden || (!main.paused && !main.ended);
+    updateLoadingUI();
     let current = -1;
     eventButtons.forEach((event, index) => { if (event.time <= main.currentTime) current = index; });
     eventButtons.forEach((event, index) => {
@@ -286,21 +302,24 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function cameraLoading(entry, loading) {
-    if (entry.blocked) return;
+    if (entry.blocked) { entry.spinner.hidden = true; entry.body.setAttribute("aria-busy", "false"); return; }
     if (!loading) {
       clearTimeout(entry.loadingTimer);
       entry.loadingTimer = null;
       entry.notice.hidden = true;
+      entry.spinner.hidden = true;
+      entry.body.setAttribute("aria-busy", "false");
     } else if (!entry.loadingTimer) {
       // A short seek must not flash an opaque loading layer over live footage.
       entry.loadingTimer = setTimeout(() => {
         entry.loadingTimer = null;
         if (active.get(entry.view.id) !== entry || entry.blocked) return;
-        if (entry.video.readyState < 2 || entry.video.seeking) {
-          entry.notice.textContent = "Buffering camera…";
-          entry.notice.hidden = false;
+        if (entry.video.readyState < 2 || entry.video.seeking || entry.waiting) {
+          entry.notice.hidden = true;
+          entry.spinner.hidden = false;
+          entry.body.setAttribute("aria-busy", "true");
         }
-      }, 700);
+      }, 250);
     }
   }
 
@@ -314,11 +333,12 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
     const video = entry.video;
-    if (video.readyState < 1) return;
+    if (video.readyState < 1) { cameraLoading(entry, true); return; }
     const mapped = mappedTime(entry.view, main.currentTime);
     const inRange = mapped && mapped.time >= 0 && Number.isFinite(video.duration) && mapped.time < video.duration;
     if (!inRange) {
       video.pause();
+      cameraLoading(entry, false);
       entry.notice.textContent = "No camera recording at this time";
       entry.notice.hidden = false;
       return;
@@ -342,13 +362,14 @@ document.addEventListener("DOMContentLoaded", () => {
       ? Math.max(-0.05, Math.min(0.05, drift * 0.05)) : 0;
     const rate = Math.min(16, Math.max(0.0625, main.playbackRate * mapped.rate * (1 + correction)));
     if (Math.abs(video.playbackRate - rate) > 0.005) video.playbackRate = rate;
-    cameraLoading(entry, video.readyState < 2 || video.seeking);
+    cameraLoading(entry, video.readyState < 2 || video.seeking || entry.waiting);
     if (!shouldPlay) video.pause();
     else if (video.paused && !entry.blocked && !entry.playPending) {
       entry.playPending = true;
       video.play().catch(error => {
         if (active.get(entry.view.id) !== entry || error.name === "AbortError") return;
         entry.blocked = true;
+        cameraLoading(entry, false);
         entry.notice.textContent = "Select Resume to enable this synchronized view.";
         entry.notice.hidden = false;
         entry.resume.hidden = false;
@@ -466,15 +487,21 @@ document.addEventListener("DOMContentLoaded", () => {
       entry.video.preload = "auto";
       entry.video.setAttribute("aria-label", view.label);
       entry.notice = el("p", "mv-view-notice", "Loading synchronized view…");
+      entry.notice.hidden = true;
+      entry.spinner = loadingSpinner();
+      entry.spinner.hidden = false;
+      body.setAttribute("aria-busy", "true");
       entry.resume = button("Resume", "mv-button mv-resume");
       entry.resume.hidden = true;
       entry.resume.setAttribute("aria-label", `Resume ${view.label}`);
-      body.append(entry.video, entry.notice, entry.resume);
+      body.append(entry.video, entry.notice, entry.resume, entry.spinner);
       entry.video.addEventListener("loadedmetadata", () => { frameVideo(entry.video, view); layoutPanels(); syncEntry(entry, true); });
       // Resume immediately once an asynchronous load/seek completes; don't rely
       // solely on the periodic main-clock drift check to restart a camera.
-      ["canplay", "seeked"].forEach(name => entry.video.addEventListener(name, () => syncEntry(entry)));
+      ["canplay", "playing", "seeked"].forEach(name => entry.video.addEventListener(name, () => { entry.waiting = false; syncEntry(entry); }));
+      entry.video.addEventListener("seeking", () => cameraLoading(entry, true));
       entry.video.addEventListener("waiting", () => {
+        entry.waiting = true;
         cameraLoading(entry, true);
       });
       entry.video.addEventListener("error", () => {
@@ -600,6 +627,7 @@ document.addEventListener("DOMContentLoaded", () => {
         mainPoster.hidden = false;
       }
       empty.querySelector("strong").textContent = "Loading main view…";
+      empty.hidden = true;
       main.src = source;
       main.preload = "auto";
       main.load();
@@ -644,10 +672,11 @@ document.addEventListener("DOMContentLoaded", () => {
     startTicker();
     updateControls();
   });
-  main.addEventListener("playing", () => { stalled = false; mainPoster.hidden = true; syncAll(true); });
-  main.addEventListener("waiting", () => { stalled = true; active.forEach(entry => entry.video?.pause()); if (playbackWanted && !main.seeking) holdForBuffer(); });
+  main.addEventListener("playing", () => { stalled = false; mainPoster.hidden = true; syncAll(true); updateControls(); });
+  main.addEventListener("canplay", updateControls);
+  main.addEventListener("waiting", () => { stalled = true; active.forEach(entry => entry.video?.pause()); if (playbackWanted && !main.seeking) holdForBuffer(); updateControls(); });
   ["pause", "ended"].forEach(name => main.addEventListener(name, () => { stopTicker(); syncAll(true); updateControls(); }));
-  main.addEventListener("seeking", () => { mainPoster.hidden = true; active.forEach(entry => { entry.needsAlign = true; entry.video?.pause(); }); });
+  main.addEventListener("seeking", () => { mainPoster.hidden = true; active.forEach(entry => { entry.needsAlign = true; entry.video?.pause(); }); updateControls(); });
   main.addEventListener("seeked", () => { stalled = false; syncAll(true); updateControls(); });
   main.addEventListener("ratechange", () => syncAll(true));
   main.addEventListener("timeupdate", () => { updateControls(); active.forEach(entry => { if (entry.view.type === "state") syncEntry(entry); }); });

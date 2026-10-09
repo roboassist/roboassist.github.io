@@ -56,6 +56,10 @@
 .mv-overlay-play svg { height: 50%; width: auto; filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.3)); }
 .mv-overlay-play:hover { background: rgba(255, 255, 255, 0.14); }
 .mv-overlay-play[hidden] { display: none; }
+.mv-loading-spinner { animation: mv-loading-spin 0.85s linear infinite; border: 3px solid rgba(255, 255, 255, 0.28); border-top-color: white; border-radius: 50%; filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.65)); height: clamp(2rem, 4vw, 2.7rem); left: 50%; pointer-events: none; position: absolute; top: 50%; translate: -50% -50%; width: clamp(2rem, 4vw, 2.7rem); z-index: 3; }
+.mv-panel .mv-loading-spinner { border-width: 2px; height: 1.6rem; width: 1.6rem; }
+@keyframes mv-loading-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .mv-loading-spinner { animation: none; } }
 .mv-video-viewport { align-items: center; background: #141c2a; display: flex; height: 100%; justify-content: center; overflow: hidden; width: 100%; }
 .mv-video-frame { flex-shrink: 0; overflow: hidden; position: relative; }
 .mv-video-frame video.is-framed { max-width: none; object-fit: fill; position: absolute; }
