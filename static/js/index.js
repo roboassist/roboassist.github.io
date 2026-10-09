@@ -201,4 +201,78 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  const taskDemo = document.querySelector("[data-task-demo]");
+
+  if (taskDemo) {
+    const scene = taskDemo.querySelector("[data-task-scene]");
+    const sendButton = taskDemo.querySelector("[data-task-send]");
+    const instruction = taskDemo.querySelector("#task-instruction");
+    const speech = taskDemo.querySelector("[data-task-speech]");
+    const status = taskDemo.querySelector("[data-task-status]");
+    const sceneStatus = taskDemo.querySelector("[data-scene-status]");
+    const consoleState = taskDemo.querySelector("[data-console-state]");
+    const steps = Array.from(taskDemo.querySelectorAll("[data-task-step]"));
+    let rolloutTimers = [];
+
+    const rollout = [
+      { state: "understand", label: "Aligning request", delay: 0 },
+      { state: "navigate", label: "Navigating to sterile table", delay: 1000 },
+      { state: "pick", label: "Picking up gauze", delay: 2400 },
+      { state: "return", label: "Returning to handover table", delay: 3600 },
+      { state: "handover", label: "Handing over gauze", delay: 4800 },
+      { state: "complete", label: "Task complete", delay: 6000 },
+    ];
+
+    const clearRollout = () => {
+      rolloutTimers.forEach(window.clearTimeout);
+      rolloutTimers = [];
+    };
+
+    const applyTaskState = (state, label) => {
+      scene.dataset.taskState = state;
+      status.textContent = label;
+      sceneStatus.textContent = label;
+      consoleState.textContent = state === "complete" ? "Complete" : "Executing";
+
+      let activeIndex = rollout.findIndex((item) => item.state === state);
+      if (state === "complete") activeIndex = steps.length;
+
+      steps.forEach((step, index) => {
+        step.classList.toggle("is-active", index === activeIndex);
+        step.classList.toggle("is-complete", index < activeIndex || state === "complete");
+      });
+
+      if (state === "complete") {
+        sendButton.disabled = false;
+        sendButton.querySelector("span").textContent = "Replay";
+      }
+    };
+
+    sendButton.addEventListener("click", () => {
+      const command = instruction.value.trim();
+      if (!command) {
+        instruction.focus();
+        status.textContent = "Enter an instruction first";
+        return;
+      }
+
+      clearRollout();
+      speech.textContent = command;
+      sendButton.disabled = true;
+      sendButton.querySelector("span").textContent = "Running";
+      consoleState.textContent = "Planning";
+      scene.dataset.taskState = "idle";
+      steps.forEach((step) => step.classList.remove("is-active", "is-complete"));
+
+      if (reducedMotion.matches) {
+        applyTaskState("complete", "Task complete");
+        return;
+      }
+
+      rollout.forEach(({ state, label, delay }) => {
+        rolloutTimers.push(window.setTimeout(() => applyTaskState(state, label), delay));
+      });
+    });
+  }
+
 });

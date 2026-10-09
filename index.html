@@ -12,12 +12,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,500,700%7CNoto+Sans:400,500,600,700%7CSource+Serif+4:600&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/index.css?v=20261009-release">
+  <link rel="stylesheet" href="./static/css/index.css?v=20261009-interactive-task">
   <link rel="stylesheet" href="./static/css/demonstrations.css?v=20261009-loading-spinner">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23586f9c'/%3E%3Cpath d='M17 17h16c9 0 15 5 15 13 0 6-3 10-8 12l9 12H37l-7-10h-2v10H17V17zm11 9v10h5c3 0 5-2 5-5s-2-5-5-5h-5z' fill='white'/%3E%3C/svg%3E">
   <script defer src="./static/js/demos-config.js?v=20261009-release"></script>
   <script defer src="./static/js/demonstrations.js?v=20261009-loading-spinner"></script>
-  <script defer src="./static/js/index.js?v=20261009-release"></script>
+  <script defer src="./static/js/index.js?v=20261009-interactive-task"></script>
 </head>
 <body>
   <main>
@@ -123,6 +123,79 @@
         <noscript><p>Enable JavaScript to explore the interactive robot demonstrations. Experimental videos are forthcoming.</p></noscript>
         <div class="demo-supplementary" hidden>
           <a class="demo-supplementary__link" data-supplementary-link hidden>Full Supplementary Video <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tinted" id="interactive-demo">
+      <div class="container is-max-desktop">
+        <div class="section-heading has-text-centered">
+          <h2 class="title is-3">Give RoboAssist a Surgical Assistance Task</h2>
+          <p class="section-lead task-demo__lead">Send an instruction to replay an illustrative task-level rollout grounded in our experimental setup.</p>
+        </div>
+
+        <div class="task-demo" data-task-demo>
+          <div class="task-demo__scene-column">
+            <div class="task-demo__meta">
+              <span>Simulated surgical workspace</span>
+              <span>Illustrative rollout</span>
+            </div>
+
+            <div class="task-scene" data-task-scene data-task-state="idle" role="img" aria-label="Pseudo-3D RoboAssist workspace with an operating table, a handover table, and a sterile table">
+              <div class="scene-curtain" aria-hidden="true"></div>
+              <div class="scene-floor" aria-hidden="true"></div>
+              <svg class="scene-route" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M 48 70 C 58 68, 68 58, 79 52 C 68 60, 58 69, 47 72 C 39 69, 31 60, 25 50"></path>
+              </svg>
+
+              <div class="scene-table scene-table--operating">
+                <span>Operating table</span>
+                <div class="scene-doctor" aria-hidden="true"><i></i></div>
+              </div>
+              <div class="scene-table scene-table--handover"><span>Handover table</span></div>
+              <div class="scene-table scene-table--sterile">
+                <span>Sterile table</span>
+                <div class="scene-gauze" aria-hidden="true"><i></i><i></i><i></i></div>
+              </div>
+
+              <div class="task-robot" data-task-robot aria-hidden="true">
+                <img src="./static/images/roboassist-logo.png" alt="">
+                <span class="task-robot__gauze"></span>
+              </div>
+
+              <div class="task-speech" data-task-speech>Nurse, please bring me gauze.</div>
+              <div class="task-scene__status" data-scene-status>Ready for instruction</div>
+            </div>
+          </div>
+
+          <div class="task-console">
+            <div class="task-console__header">
+              <span class="task-console__mark" aria-hidden="true">R</span>
+              <strong>RoboAssist</strong>
+              <span data-console-state>Standby</span>
+            </div>
+
+            <div class="task-console__body">
+              <label for="task-instruction">Instruction</label>
+              <textarea id="task-instruction" rows="3">Nurse, please bring me gauze.</textarea>
+
+              <ol class="task-rollout" aria-label="Illustrative task rollout">
+                <li data-task-step="understand"><span>1</span>Align request with task memory</li>
+                <li data-task-step="navigate"><span>2</span>Navigate to the sterile table</li>
+                <li data-task-step="pick"><span>3</span>Pick up gauze</li>
+                <li data-task-step="return"><span>4</span>Return to the handover table</li>
+                <li data-task-step="handover"><span>5</span>Hand over to the surgeon</li>
+              </ol>
+
+              <div class="task-console__footer">
+                <p class="task-console__status" data-task-status aria-live="polite">Ready to send</p>
+                <button class="task-send" type="button" data-task-send>
+                  <span>Send</span>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"></path></svg>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
