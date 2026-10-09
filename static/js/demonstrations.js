@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
     <p class="mv-hint">Open a camera to compare synchronized views. On small screens, one auxiliary view is shown at a time.</p>
     <div class="mv-timeline" hidden><h3>Event Timeline</h3><div class="mv-event-rail" role="group" aria-label="Event markers"></div><div class="mv-event-track" role="group" aria-label="Experiment events"></div></div>
-    <div class="mv-buffer" hidden><div class="mv-buffer-copy"><span data-mv="buffer-label"></span><button class="mv-button" data-mv="play-now" type="button" hidden>Play now</button></div><progress data-mv="buffer-progress" max="100" value="0" aria-label="Playback buffer"></progress><small>Buffer ahead, not total download progress. Playback is silent.</small></div>
+    <div class="mv-buffer" hidden><div class="mv-buffer-copy"><span data-mv="buffer-label"></span><button class="mv-button" data-mv="play-now" type="button" hidden>Play now</button></div></div>
     <p class="mv-status" role="status" aria-live="polite"></p>`;
   document.body.append(dialog);
   const $ = (selector) => dialog.querySelector(selector);
@@ -148,6 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
     buffering = false;
     clearInterval(bufferTicker);
     bufferTicker = null;
+    bufferBox.hidden = true;
     control("play-now").hidden = true;
     control("buffer-label").textContent = "Playback paused · select Play to buffer and resume";
   }
@@ -182,12 +183,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!buffering && !main.paused && states.some(state => state.low)) holdForBuffer();
     const seconds = Math.min(...states.map(state => state.seconds));
     if (seconds > lastBufferSeconds + 0.1) { lastBufferSeconds = seconds; lastBufferGrowth = performance.now(); }
-    const percent = Math.min(...states.map(state => state.target ? state.ahead / state.target * 100 : 100));
-    bufferBox.hidden = false;
-    control("buffer-label").textContent = buffering
-      ? `Buffering · ${seconds.toFixed(1)} / 8 seconds ready at ${main.playbackRate}×${states.length > 1 ? " · slowest active view" : ""}`
-      : `Buffered ahead · ${seconds.toFixed(1)} seconds at ${main.playbackRate}×`;
-    control("buffer-progress").value = Math.max(0, Math.min(100, percent));
+    bufferBox.hidden = !buffering;
+    control("buffer-label").textContent = states.length > 1 ? "Buffering synchronized views…" : "Buffering…";
     control("play-now").hidden = !buffering || performance.now() - bufferStarted < 15000 || !states.every(state => state.ready);
     // Browsers may cap paused preloading. Avoid an unreachable eight-second
     // gate: use a smaller real buffer only after six seconds without growth.
@@ -618,12 +615,11 @@ document.addEventListener("DOMContentLoaded", () => {
     empty.hidden = true;
     frameVideo(main, scene.main);
     setControls(true);
-    bufferBox.hidden = false;
-    control("buffer-label").textContent = "Ready · select Play to buffer before playback";
+    bufferBox.hidden = true;
     availableViews.forEach(item => { item.button.disabled = !item.supplied; item.button.title = item.supplied ? "Toggle synchronized view" : "Verified resource not yet available"; });
     say(availableViews.size
-      ? "Select Play. All videos are muted; auxiliary cameras load only when opened."
-      : "Select Play. This video is muted. Drag the progress bar to seek.");
+      ? "Select Play. Auxiliary cameras load only when opened."
+      : "Select Play. Drag the progress bar to seek.");
     renderEvents();
   });
   main.addEventListener("error", () => {
