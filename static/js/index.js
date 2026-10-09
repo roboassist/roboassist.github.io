@@ -1,14 +1,48 @@
 document.addEventListener("DOMContentLoaded", () => {
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-  const demoVideo = document.querySelector("#main-demo-video");
-  const demoPlaceholder = document.querySelector("#main-demo-placeholder");
+  const heroVideo = document.querySelector("#hero-background-video");
+  const heroVideoToggle = document.querySelector(".hero-video-toggle");
 
-  if (demoVideo) {
-    const source = (demoVideo.dataset.src || "").trim();
-    if (source && source.toUpperCase() !== "TODO") {
-      demoVideo.src = source;
-      demoVideo.hidden = false;
-      if (demoPlaceholder) demoPlaceholder.hidden = true;
+  if (heroVideo && heroVideoToggle) {
+    const hero = heroVideo.closest(".project-hero");
+    heroVideo.muted = true;
+
+    const updateHeroPlayback = () => {
+      heroVideoToggle.textContent = heroVideo.paused
+        ? "Play background video"
+        : "Pause background video";
+    };
+
+    heroVideo.addEventListener("loadeddata", () => {
+      hero.classList.add("has-video");
+      heroVideoToggle.hidden = false;
+      updateHeroPlayback();
+    });
+    heroVideo.addEventListener("play", updateHeroPlayback);
+    heroVideo.addEventListener("pause", updateHeroPlayback);
+    heroVideo.addEventListener("error", () => {
+      hero.classList.remove("has-video");
+      heroVideoToggle.hidden = true;
+    });
+    heroVideoToggle.addEventListener("click", () => {
+      if (heroVideo.paused) {
+        heroVideo.play().catch(updateHeroPlayback);
+      } else {
+        heroVideo.pause();
+      }
+    });
+
+    const applyMotionPreference = () => {
+      heroVideo.autoplay = !reducedMotion.matches;
+      if (reducedMotion.matches) heroVideo.pause();
+      else heroVideo.play().catch(updateHeroPlayback);
+    };
+    reducedMotion.addEventListener("change", applyMotionPreference);
+    applyMotionPreference();
+    if (heroVideo.readyState >= 2) {
+      hero.classList.add("has-video");
+      heroVideoToggle.hidden = false;
+      updateHeroPlayback();
     }
   }
 
