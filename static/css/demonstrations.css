@@ -31,6 +31,12 @@
 }
 .mv-dialog::backdrop { background: rgba(16, 23, 38, 0.78); }
 .mv-dialog [hidden] { display: none !important; }
+.mv-buffer { background: var(--wash); border: 1px solid var(--line); border-radius: 0.6rem; margin-top: 1rem; padding: 0.75rem; }
+.mv-buffer-copy { align-items: center; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: space-between; font-size: 0.82rem; }
+.mv-buffer progress { accent-color: var(--blue); display: block; height: 0.45rem; margin: 0.6rem 0; width: 100%; }
+.mv-buffer small { color: var(--muted); font-size: 0.7rem; }
+.mv-surface:fullscreen .mv-buffer { flex-shrink: 0; margin: 0.5rem; }
+.mv-controls > [data-mv="play"] { flex: 0 0 4.8rem; width: 4.8rem; }
 .mv-header { align-items: flex-start; display: flex; gap: 1rem; justify-content: space-between; }
 .mv-header h2 { color: var(--ink); font-family: "Source Serif 4", Georgia, serif; font-size: clamp(1.3rem, 2.5vw, 1.9rem); font-weight: 600; line-height: 1.3; margin: 0; }
 .mv-eyebrow { color: var(--blue-deep); font-size: 0.67rem; font-weight: 700; letter-spacing: 0.08em; margin: 0 0 0.4rem; text-transform: uppercase; }

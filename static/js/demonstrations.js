@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
     <p class="mv-hint">Open a camera to compare synchronized views. On small screens, one auxiliary view is shown at a time.</p>
     <div class="mv-timeline" hidden><h3>Event Timeline</h3><div class="mv-event-rail" role="group" aria-label="Event markers"></div><div class="mv-event-track" role="group" aria-label="Experiment events"></div></div>
+    <div class="mv-buffer" hidden><div class="mv-buffer-copy"><span data-mv="buffer-label"></span><button class="mv-button" data-mv="play-now" type="button" hidden>Play now</button></div><progress data-mv="buffer-progress" max="100" value="0" aria-label="Playback buffer"></progress><small>Buffer ahead, not total download progress. Playback is silent.</small></div>
     <p class="mv-status" role="status" aria-live="polite"></p>`;
   document.body.append(dialog);
   const $ = (selector) => dialog.querySelector(selector);
@@ -107,6 +108,103 @@ document.addEventListener("DOMContentLoaded", () => {
   let scrubWasPlaying = false;
   let scrubPointer = null;
   let previewWarning = "";
+  let playbackWanted = false;
+  let buffering = false;
+  let bufferTicker = null;
+  let bufferStarted = 0;
+  let startingPlayback = false;
+  let lastBufferSeconds = 0;
+  let lastBufferGrowth = 0;
+  const bufferBox = $(".mv-buffer");
+  surface.append(bufferBox); // Keep progress and the fallback reachable in fullscreen.
+
+  function bufferState() {
+    const videos = [{ video: main, time: main.currentTime, rate: main.playbackRate }];
+    active.forEach(entry => {
+      const mapped = mappedTime(entry.view, main.currentTime);
+      if (entry.video && !entry.blocked && mapped && mapped.time >= 0 && mapped.time < entry.video.duration) {
+        videos.push({ video: entry.video, time: mapped.time, rate: main.playbackRate * mapped.rate });
+      } else if (entry.video && !entry.blocked && entry.video.readyState < 1) {
+        videos.push({ video: entry.video, time: 0, rate: main.playbackRate });
+      }
+    });
+    return videos.map(({ video, time, rate }) => {
+      let ahead = 0;
+      for (let i = 0; i < video.buffered.length; i++) {
+        if (video.buffered.start(i) <= time + 0.05 && video.buffered.end(i) > time) {
+          ahead = video.buffered.end(i) - time;
+          break;
+        }
+      }
+      const remaining = Number.isFinite(video.duration) ? Math.max(0, video.duration - time) : Infinity;
+      const target = Math.min(8 * rate, remaining);
+      return { ahead, seconds: ahead / rate, target, ready: video.readyState >= 2 && !video.seeking,
+        enough: video.readyState >= 2 && !video.seeking && ahead + 0.08 >= target,
+        low: remaining > 0.15 && (video.readyState < 3 || ahead < Math.min(0.6 * rate, remaining - 0.05)) };
+    });
+  }
+  function cancelBuffering() {
+    playbackWanted = false;
+    buffering = false;
+    clearInterval(bufferTicker);
+    bufferTicker = null;
+    control("play-now").hidden = true;
+    control("buffer-label").textContent = "Playback paused · select Play to buffer and resume";
+  }
+  function holdForBuffer() {
+    if (!playbackWanted || buffering || scrubbing || main.ended) return;
+    buffering = true;
+    bufferStarted = performance.now();
+    lastBufferSeconds = 0;
+    lastBufferGrowth = bufferStarted;
+    main.preload = "auto";
+    active.forEach(entry => { if (entry.video) entry.video.preload = "auto"; });
+    main.pause();
+    syncAll(true);
+    updateControls();
+  }
+  function resumeBufferedPlayback() {
+    if (!playbackWanted || startingPlayback || !dialog.open || scrubbing) return;
+    const token = session;
+    buffering = false;
+    stalled = false;
+    startingPlayback = true;
+    main.play().catch(error => {
+      if (token !== session || !dialog.open || error.name === "AbortError") return;
+      cancelBuffering();
+      say("Playback could not start. Select Play to retry.");
+    }).finally(() => { if (token === session) { startingPlayback = false; updateControls(); } });
+  }
+  function checkBuffer() {
+    if (!dialog.open || !playbackWanted || scrubbing || main.seeking) return;
+    if (main.ended) { cancelBuffering(); return; }
+    const states = bufferState();
+    if (!buffering && !main.paused && states.some(state => state.low)) holdForBuffer();
+    const seconds = Math.min(...states.map(state => state.seconds));
+    if (seconds > lastBufferSeconds + 0.1) { lastBufferSeconds = seconds; lastBufferGrowth = performance.now(); }
+    const percent = Math.min(...states.map(state => state.target ? state.ahead / state.target * 100 : 100));
+    bufferBox.hidden = false;
+    control("buffer-label").textContent = buffering
+      ? `Buffering · ${seconds.toFixed(1)} / 8 seconds ready at ${main.playbackRate}×${states.length > 1 ? " · slowest active view" : ""}`
+      : `Buffered ahead · ${seconds.toFixed(1)} seconds at ${main.playbackRate}×`;
+    control("buffer-progress").value = Math.max(0, Math.min(100, percent));
+    control("play-now").hidden = !buffering || performance.now() - bufferStarted < 15000 || !states.every(state => state.ready);
+    // Browsers may cap paused preloading. Avoid an unreachable eight-second
+    // gate: use a smaller real buffer only after six seconds without growth.
+    const preloadLimited = seconds >= 2 && performance.now() - lastBufferGrowth >= 6000 && states.every(state => state.ready);
+    if (buffering && (states.every(state => state.enough) || preloadLimited)) resumeBufferedPlayback();
+  }
+  function requestBufferedPlayback() {
+    if (main.ended) main.currentTime = 0;
+    playbackWanted = true;
+    holdForBuffer();
+    if (!bufferTicker) bufferTicker = setInterval(checkBuffer, 250);
+    checkBuffer();
+  }
+  control("play-now").addEventListener("click", () => {
+    resumeBufferedPlayback();
+    say("Playing with the available buffer. A slow connection may require another buffering pause.");
+  });
 
   // Crop only a verified black-border rectangle; retain the complete original file.
   function frameVideo(video, resource) {
@@ -164,7 +262,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const shownTime = scrubbing ? scrubTarget : main.currentTime;
     seek.setAttribute("aria-valuetext", `${clock(shownTime)} of ${clock(duration)}`);
     control("clock").textContent = `${clock(shownTime)} / ${clock(duration)}`;
-    control("play").textContent = main.paused || main.ended ? "Play" : "Pause";
+    control("play").textContent = buffering && playbackWanted ? "Cancel" : main.paused || main.ended ? "Play" : "Pause";
     overlayPlay.hidden = overlayPlay.disabled || main.hidden || (!main.paused && !main.ended);
     let current = -1;
     eventButtons.forEach((event, index) => { if (event.time <= main.currentTime) current = index; });
@@ -368,7 +466,7 @@ document.addEventListener("DOMContentLoaded", () => {
       entry.video = el("video", "mv-aux-video");
       silence(entry.video);
       entry.video.playsInline = true;
-      entry.video.preload = "metadata";
+      entry.video.preload = "auto";
       entry.video.setAttribute("aria-label", view.label);
       entry.notice = el("p", "mv-view-notice", "Loading synchronized view…");
       entry.resume = button("Resume", "mv-button mv-resume");
@@ -435,6 +533,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function resetPlayer() {
+    cancelBuffering();
+    bufferBox.hidden = true;
+    startingPlayback = false;
     previewWarning = "";
     mainPoster.hidden = true;
     mainPoster.removeAttribute("src");
@@ -503,7 +604,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       empty.querySelector("strong").textContent = "Loading main view…";
       main.src = source;
-      main.preload = "metadata";
+      main.preload = "auto";
       main.load();
       checkLocalPreview(source, session);
     }
@@ -517,6 +618,8 @@ document.addEventListener("DOMContentLoaded", () => {
     empty.hidden = true;
     frameVideo(main, scene.main);
     setControls(true);
+    bufferBox.hidden = false;
+    control("buffer-label").textContent = "Ready · select Play to buffer before playback";
     availableViews.forEach(item => { item.button.disabled = !item.supplied; item.button.title = item.supplied ? "Toggle synchronized view" : "Verified resource not yet available"; });
     say(availableViews.size
       ? "Select Play. All videos are muted; auxiliary cameras load only when opened."
@@ -525,6 +628,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   main.addEventListener("error", () => {
     if (!dialog.open || !main.getAttribute("src")) return;
+    cancelBuffering();
     stopTicker();
     main.pause();
     main.hidden = true;
@@ -545,17 +649,17 @@ document.addEventListener("DOMContentLoaded", () => {
     updateControls();
   });
   main.addEventListener("playing", () => { stalled = false; mainPoster.hidden = true; syncAll(true); });
-  main.addEventListener("waiting", () => { stalled = true; active.forEach(entry => entry.video?.pause()); });
+  main.addEventListener("waiting", () => { stalled = true; active.forEach(entry => entry.video?.pause()); if (playbackWanted && !main.seeking) holdForBuffer(); });
   ["pause", "ended"].forEach(name => main.addEventListener(name, () => { stopTicker(); syncAll(true); updateControls(); }));
   main.addEventListener("seeking", () => { mainPoster.hidden = true; active.forEach(entry => { entry.needsAlign = true; entry.video?.pause(); }); });
   main.addEventListener("seeked", () => { stalled = false; syncAll(true); updateControls(); });
   main.addEventListener("ratechange", () => syncAll(true));
   main.addEventListener("timeupdate", () => { updateControls(); active.forEach(entry => { if (entry.view.type === "state") syncEntry(entry); }); });
   control("play").addEventListener("click", () => {
-    if (!main.paused && !main.ended) main.pause();
+    if (playbackWanted || !main.paused && !main.ended) { cancelBuffering(); main.pause(); updateControls(); }
     else {
-      const token = session;
-      main.play().catch(() => { if (token === session && dialog.open) say("Playback was blocked. Select Play again to retry."); });
+      active.forEach(entry => { entry.blocked = false; });
+      requestBufferedPlayback();
     }
   });
   overlayPlay.addEventListener("click", () => control("play").click());
@@ -570,7 +674,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (scrubbing || control("seek").disabled) return;
     scrubbing = true;
     scrubTarget = Number(control("seek").value);
-    scrubWasPlaying = !main.paused && !main.ended;
+    scrubWasPlaying = playbackWanted || !main.paused && !main.ended;
+    cancelBuffering();
     main.pause();
   }
   function finishScrub(cancelled = false) {
@@ -584,8 +689,7 @@ document.addEventListener("DOMContentLoaded", () => {
       syncAll(true);
     }
     updateControls();
-    const token = session;
-    if (resume) main.play().catch(() => { if (token === session && dialog.open) say("Select Play to resume after seeking."); });
+    if (resume) requestBufferedPlayback();
   }
   const seekControl = control("seek");
   function pointerSeek(event) {
@@ -686,7 +790,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!dialog.open) closePlayer();
   });
   hero?.addEventListener("play", () => { if (dialog.open) hero.pause(); });
-  document.addEventListener("visibilitychange", () => { if (document.hidden && dialog.open) main.pause(); });
+  document.addEventListener("visibilitychange", () => { if (document.hidden && dialog.open) { cancelBuffering(); main.pause(); updateControls(); } });
   const resize = () => {
     if (compact.matches && active.size > 1) [...active.keys()].slice(0, -1).forEach(id => hideView(id));
     layoutPanels();
