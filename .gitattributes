@@ -1,0 +1,6 @@
+static/maps/room03/data/*.f32 binary
+static/maps/room03/data/*.rgb8 binary
+static/maps/room03/data/*.ply binary
+static/maps/room03/data/*.json text eol=lf
+static/maps/room03/data/*.csv text eol=lf
+static/maps/room03/data/SHA256SUMS text eol=lf

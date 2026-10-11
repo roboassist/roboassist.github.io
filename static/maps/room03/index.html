@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>RoboAssist · Semantic Scene Explorer</title>
+  <link rel="stylesheet" href="explorer.css">
+  <script type="importmap">{"imports":{"three":"./vendor/three.module.js","three/addons/controls/OrbitControls.js":"./vendor/OrbitControls.js","three/addons/loaders/PLYLoader.js":"./vendor/PLYLoader.js"}}</script>
+</head>
+<body>
+  <header class="header"><a class="brand" href="../../../.." target="_top"><span class="brand-icon">R</span>RoboAssist <span class="divider"></span><span class="subbrand">Scene Explorer</span></a><div class="header-actions"><span class="scene-badge"><i></i> ROOM</span><button id="inspector-toggle" aria-expanded="false" aria-controls="scene-inspector">Details</button><button id="fullscreen" title="Toggle fullscreen">⛶ <span>Fullscreen</span></button></div></header>
+  <main class="workspace">
+    <aside class="catalog"><div class="catalog-head"><div class="eyebrow">OBJECT-LEVEL PERCEPTION</div><h1>Semantic map<span class="accent">.</span></h1><p>Explore what the robot sees.</p><label class="search"><span>⌕</span><input id="search" placeholder="Search objects or IDs…" aria-label="Search objects"></label><label class="filter-label" for="category">CATEGORY</label><select id="category"><option value="">All categories</option></select><div class="list-heading"><span>Objects</span><span id="result-count">—</span></div></div><div id="object-list" class="object-list" aria-label="Scene objects"></div><div class="catalog-footer">Select an object to inspect its geometry.<br><span>Scroll to zoom · drag to orbit</span></div></aside>
+    <section class="viewport" aria-label="Three dimensional point cloud">
+      <div id="canvas-host"></div>
+      <div class="view-heading"><span class="eyebrow">RECONSTRUCTED SCENE</span><h2>Room <span>/</span> Semantic mapping</h2></div>
+      <div class="toolbar" role="group" aria-label="Map controls"><div class="segmented"><button id="rgb" class="active" aria-pressed="true">Original RGB</button><button id="semantic" aria-pressed="false">Semantic</button></div><button id="top" aria-pressed="false">⊞ Top view</button><button id="reset">↺ Reset</button></div>
+      <div id="loading" class="loading" role="status"><div class="spinner"></div><strong id="loading-title">Loading semantic geometry</strong><span id="loading-note">Preparing room objects…</span></div>
+      <div id="tooltip" class="tooltip" hidden></div>
+      <div class="viewport-footer"><span><i class="live-dot"></i><span id="render-status">Preparing scene</span></span><span>MAP FRAME <b>Z ↑</b> · METERS</span></div>
+      <div class="view-options"><label><input id="environment" type="checkbox" checked>Environment</label><label><input id="boxes" type="checkbox">Object bounds</label><label><input id="isolate" type="checkbox">Isolate selection</label><label>Point size <input id="point-size" type="range" min="10" max="45" value="19" aria-label="Point size"></label></div>
+    </section>
+    <aside class="inspector" id="scene-inspector"><button id="inspector-close" aria-label="Close object details">×</button><div class="eyebrow">SCENE INTELLIGENCE</div><div id="details"></div><section class="layer-section"><h3>Scene composition</h3><div id="composition"></div></section><div class="inspector-note"><span>DATA NOTE</span><p>Review hints describe geometry; they are not confidence scores.</p></div></aside>
+  </main>
+  <div id="toast" role="status" hidden></div>
+  <script type="module" src="explorer.js"></script>
+</body>
+</html>
