@@ -11,6 +11,10 @@ The site is a framework-free GitHub Pages project built with HTML, CSS, and Java
 - Click or tap a video picture to play/pause; drag the shared timeline to seek.
 - Playback speeds from 0.5× to 3×, picture-in-picture, and split view.
 - Responsive desktop and mobile layouts.
+- An articulated Unitree G1 gauze-delivery scene, modeled after the experimental
+  workspace, with orbit/zoom controls, a real-scene reference, pause, and replay.
+  Robot geometry is from Unitree's official model; motion and room dimensions are
+  illustrative. See `static/models/g1/README.md` for provenance and licenses.
 
 Publication videos are H.264 MP4 web copies with fast-start metadata, capped bitrate, and **no audio tracks**. Original research recordings are not included in this publication snapshot. Browser playback is also fixed to mute. The web compression does not change clip timing or scientific text. Auxiliary time offsets are preview settings, not independently calibrated camera alignment.
 

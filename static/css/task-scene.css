@@ -1,0 +1,55 @@
+/* Scoped to the recorded-workspace 3D demonstration. */
+#interactive-demo > .container { max-width: 1280px !important; }
+#interactive-demo { scroll-margin-top: 90px; }
+.task-demo--3d { grid-template-columns: minmax(0, 1fr) 300px; padding: 16px; gap: 20px; }
+.task-demo--3d .task-demo__meta { padding: 4px 4px 13px; font-size: 12px; }
+.task-demo--3d .task-console { align-self: center; box-shadow: none; }
+.task-demo--3d .task-console__body { padding: 22px; }
+.task-demo--3d .task-rollout { margin: 24px 0; }
+.task-demo--3d .task-rollout li { font-size: 12px; padding: 9px 0; }
+.task-demo--3d .task-send:disabled { cursor: wait; opacity: .55; }
+.surgical-viewport { background: #eeeef0; height: 600px; position: relative; overflow: hidden; border-radius: 12px; isolation: isolate; }
+.surgical-canvas, .surgical-reference { position: absolute; width: 100%; height: 100%; inset: 0; }
+.surgical-canvas canvas { display: block; width: 100%; height: 100%; outline-offset: -4px; }
+.surgical-annotations { position:absolute; inset:0; pointer-events:none; overflow:hidden; }
+.surgical-annotations svg { width:100%; height:100%; position:absolute; inset:0; overflow:visible; }
+.surgical-annotations polyline { fill:none; stroke:#647ca4; stroke-width:1.5; stroke-linejoin:round; }
+.surgical-speech { position:absolute; top:0; left:0; z-index:2; width:max-content; max-width:min(260px, calc(100% - 20px)); padding:12px 15px; border:1px solid #adbbd6; border-radius:13px; background:#f5f8ff; color:#293d61; box-shadow:0 4px 16px #24385a20; font:15px/1.45 Arial,sans-serif; }
+.surgical-speech[hidden] { display:none; }
+.surgical-speech strong { display:block; margin-bottom:4px; font-size:11px; letter-spacing:.04em; color:#60739b; }
+.surgical-speech span { display:block; }
+.surgical-speech::after { content:''; position:absolute; left:var(--speech-tail, 50%); bottom:-7px; width:12px; height:12px; background:inherit; border-right:1px solid #adbbd6; border-bottom:1px solid #adbbd6; transform:translateX(-50%) rotate(45deg); }
+.surgical-speech[data-speaker="nurse"] { background:#f3f0fb; color:#494368; }
+.surgical-table-label { position:absolute; top:0; left:0; padding:8px 11px; background:#fff; border:1px solid #b3c2d9; border-left:4px solid #627bad; border-radius:6px; color:#2b405f; font:600 14px/1.2 Arial,sans-serif; white-space:nowrap; box-shadow:0 2px 6px #24385a13; }
+.surgical-reference { object-fit: contain; background: #e7e8ea; z-index: 2; }
+.surgical-loading { position: absolute; inset: 0; display: grid; place-items: center; background: #eeeef0; color: #58657c; z-index: 3; font-size: 13px; padding: 35px; text-align: center; }
+.surgical-loading[hidden], .surgical-reference[hidden] { display: none; }
+.surgical-view-switch { position: absolute; left: 14px; top: 14px; display: flex; gap: 3px; padding: 4px; background: rgba(255,255,255,.94); border: 1px solid #dde1e9; border-radius: 9px; z-index: 4; }
+.surgical-view-switch button { border: 0; color: #657089; background: transparent; font: inherit; font-size: 11px; padding: 8px 10px; border-radius: 6px; cursor: pointer; }
+.surgical-view-switch button[aria-pressed="true"] { background: #e8ecf6; color: #455985; }
+.surgical-camera-tools { position: absolute; display: flex; gap: 5px; right: 12px; bottom: 14px; z-index: 4; }
+.surgical-camera-tools button { border: 1px solid #d8dfe8; background: rgba(255,255,255,.94); color: #53647e; border-radius: 7px; width: 32px; height: 32px; font: inherit; font-size: 19px; cursor: pointer; }
+.surgical-scene-caption { position: absolute; left: 14px; bottom: 16px; max-width: calc(100% - 140px); color: #405575; background: rgba(255,255,255,.92); padding: 8px 12px; border-radius: 7px; font-size: 11px; z-index: 4; }
+.surgical-footnote { display: flex; justify-content: space-between; gap: 16px; color: #7a8496; font-size: 10px; line-height: 1.5; padding: 12px 4px 1px; }
+.task-pause { display: block; margin: 14px 0 0 auto; border: 0; border-bottom: 1px solid #b0b9cd; background: none; color: #586f9c; font: inherit; font-size: 12px; cursor: pointer; padding: 3px; }
+.task-pause[hidden] { display: none; }
+.surgical-viewport button:focus-visible, .task-pause:focus-visible { outline: 3px solid #8a9eca; outline-offset: 2px; }
+@media (max-width: 1050px) {
+  .task-demo--3d { grid-template-columns: minmax(0, 1fr) 275px; gap: 14px; }
+  .surgical-viewport { height: 530px; }
+  .surgical-footnote { flex-direction: column; gap: 2px; }
+}
+@media (max-width: 768px) {
+  .surgical-speech { max-width:220px; padding:10px 12px; font-size:13px; }
+  .surgical-table-label { padding:7px; font-size:11px; border-left-width:3px; }
+  .task-demo--3d { grid-template-columns: 1fr; padding: 10px; }
+  .surgical-viewport { height: 420px; }
+  .surgical-view-switch { left: 8px; top: 8px; }
+  .surgical-view-switch button { padding: 7px 8px; font-size: 10px; }
+  .task-demo--3d .task-demo__meta { font-size: 10px; gap: 6px; }
+  .surgical-footnote > :last-child { display: none; }
+  .task-demo--3d .task-console { width: 100%; }
+  .surgical-scene-caption { left: 8px; bottom: 14px; font-size: 10px; max-width: calc(100% - 118px); }
+  .surgical-camera-tools { right: 8px; gap: 3px; }
+  .surgical-camera-tools button { width: 28px; height: 28px; }
+}
