@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="./static/css/demonstrations.css?v=20261009-loading-spinner">
   <link rel="stylesheet" href="./static/css/semantic-map.css?v=20261010">
   <link rel="stylesheet" href="./static/css/workspace-stage.css?v=20261011">
-  <link rel="stylesheet" href="./static/css/reconstruction-figure.css?v=workspace-steps-v5">
+  <link rel="stylesheet" href="./static/css/reconstruction-figure.css?v=native-figure-v6">
   <link rel="stylesheet" href="./static/css/task-scene.css?v=20261010-dialogue">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23586f9c'/%3E%3Cpath d='M17 17h16c9 0 15 5 15 13 0 6-3 10-8 12l9 12H37l-7-10h-2v10H17V17zm11 9v10h5c3 0 5-2 5-5s-2-5-5-5h-5z' fill='white'/%3E%3C/svg%3E">
   <script defer src="./static/js/demos-config.js?v=20261009-release"></script>
@@ -163,11 +163,31 @@
         </div>
         <div id="scene-reconstruction" class="workspace-part" role="group" aria-labelledby="reconstruction-title">
           <h3 id="reconstruction-title" class="workspace-part-title"><span class="workspace-part-number">1</span>Scene reconstruction</h3>
-          <figure class="reconstruction-figure">
-            <a class="reconstruction-image-link" href="./static/images/scene-reconstruction-v5-blue.png" target="_blank" rel="noopener" aria-label="View scene reconstruction figure at full size (opens in a new tab)">
-              <img src="./static/images/scene-reconstruction-v5-body.png" width="3000" height="820" loading="lazy" decoding="async" alt="Real-world surgical workspace with the person's face masked, point cloud, Astra and Blender, and the 3D model. SLAM + depth and RGB-D camera are shown below.">
-            </a>
-            <figcaption><a href="./static/images/scene-reconstruction-v5-blue.png" target="_blank" rel="noopener">View full-size figure <span aria-hidden="true">↗</span></a></figcaption>
+          <figure class="reconstruction-figure" aria-label="Scene reconstruction workflow">
+            <div class="reconstruction-flow">
+              <div class="reconstruction-panel">
+                <h4>Real-world scene</h4>
+                <div class="reconstruction-media"><img src="./static/images/reconstruction/real-scene.png" width="1170" height="567" loading="lazy" decoding="async" draggable="false" alt="Real surgical workspace; only the person's face is pixelated."></div>
+              </div>
+              <div class="reconstruction-arrow" aria-hidden="true">→</div>
+              <div class="reconstruction-panel">
+                <h4>Point cloud</h4>
+                <div class="reconstruction-media"><img src="./static/images/reconstruction/point-cloud.png" width="1253" height="1002" loading="lazy" decoding="async" draggable="false" alt="Point cloud of the surgical workspace."></div>
+              </div>
+              <div class="reconstruction-tools" aria-label="Reconstruction with Astra and Blender">
+                <span class="reconstruction-tool">Blender</span>
+                <span class="reconstruction-tool-down" aria-hidden="true">↓</span>
+                <div class="reconstruction-agent-row"><span aria-hidden="true">→</span><span class="reconstruction-agent">Astra</span><span aria-hidden="true">→</span></div>
+              </div>
+              <div class="reconstruction-panel">
+                <h4>3D model</h4>
+                <div class="reconstruction-media"><img src="./static/images/reconstruction/model-2x.png" width="1800" height="1520" loading="lazy" decoding="async" draggable="false" alt="Reconstructed 3D surgical workspace."></div>
+              </div>
+            </div>
+            <figcaption class="reconstruction-legend">
+              <span><svg viewBox="0 0 28 28" aria-hidden="true"><path d="m3 9 11-6 11 6-11 6Z M3 14l11 6 11-6 M3 19l11 6 11-6"/></svg>SLAM + depth</span>
+              <span><svg viewBox="0 0 28 28" aria-hidden="true"><rect x="3" y="7" width="22" height="17" rx="3"/><circle cx="14" cy="15.5" r="5"/><path d="m8 7 2-4h8l2 4"/></svg>RGB-D camera</span>
+            </figcaption>
           </figure>
         </div>
         <div id="workspace-preview" class="workspace-part" role="group" aria-labelledby="workspace-preview-title">
