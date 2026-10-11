@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>RoboAssist · Surgical workspace</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23526c97'/%3E%3Ctext x='7' y='24' fill='white' font-family='Arial' font-weight='bold' font-size='24'%3ER%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="viewer.css">
+  <link rel="stylesheet" href="fade-view.css">
+  <script type="importmap">{"imports":{"three":"../../maps/room03/vendor/three.module.js","three/addons/controls/OrbitControls.js":"../../maps/room03/vendor/OrbitControls.js"}}</script>
+</head>
+<body>
+  <header class="comparison-heading"><strong>ONE WORKSPACE · TWO REPRESENTATIONS</strong><span>Point cloud · Model</span></header>
+  <main id="viewport" aria-label="Interactive three-dimensional room">
+    <div id="canvas-host"></div>
+    <div class="scene-title"><span class="status-dot"></span><span id="view-name">ROOM OVERVIEW</span></div>
+    <button id="fade-toggle" title="Fade between point cloud and model" disabled>Press <kbd>F</kbd> to fade</button>
+    <div class="toolbar" role="group" aria-label="View controls">
+      <button id="top" aria-label="Top view" title="Top view" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM4 11h16M11 4v16"/></svg></button>
+      <button id="reset" aria-label="Reset view" title="Reset view"><svg viewBox="0 0 24 24"><path d="M5 8a8 8 0 1 1-1 7M5 3v5h5"/></svg></button>
+      <button id="fullscreen" aria-label="Fullscreen" title="Fullscreen"><svg viewBox="0 0 24 24"><path d="M9 4H4v5m11-5h5v5M4 15v5h5m11-5v5h-5"/></svg></button>
+      <button id="settings-toggle" aria-label="View settings" title="View settings" aria-expanded="false" aria-controls="view-settings"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 17h16M9 4v6m6 4v6"/></svg></button>
+    </div>
+    <div id="view-settings" hidden>
+      <strong>View settings</strong>
+      <label>Walls <select id="walls" aria-label="Wall visibility"><option value="auto">Auto cutaway</option><option value="all">All walls</option><option value="none">No walls</option></select></label>
+      <label>Point colors <select id="cloud-color" aria-label="Point cloud coloring"><option value="rgb">Surface colors</option><option value="height">Height gradient</option></select></label>
+      <button id="labels" aria-pressed="true"><span>Region labels</span><span class="toggle-mark" aria-hidden="true"></span></button>
+      <p>Adjust wall visibility, point colors and region labels.</p>
+    </div>
+    <svg id="leaders" aria-hidden="true"></svg><div id="region-labels"></div>
+    <div id="loading" role="status"><span class="spinner"></span><strong>Loading the workspace</strong><span id="load-progress">Preparing 3D geometry…</span></div>
+    <p id="label-status" role="status" aria-live="polite"></p>
+    <p id="compare-status" role="status">Loading the point cloud…</p><button id="scan-retry" hidden>Retry point cloud</button>
+    <div class="gesture-hint"><span>Drag to explore</span><span class="hint-extra">Scroll to zoom · right-drag to pan</span></div>
+  </main>
+  <footer>
+    <div id="compare-row"><label for="compare-range">Point cloud</label><input id="compare-range" type="range" min="0" max="100" value="0" aria-label="Blend between point cloud and model" disabled><span>Model</span></div>
+    <nav class="regions" aria-label="Focus a region">
+      <button id="overview" aria-pressed="true"><span>Overview</span></button>
+      <button data-region="operating" aria-pressed="false"><b>01</b><span>Operating table</span></button>
+      <button data-region="sterile" aria-pressed="false"><b>02</b><span>Sterile table</span></button>
+      <button data-region="handover" aria-pressed="false"><b>03</b><span>Handover table</span></button>
+    </nav>
+    <div class="region-context"><span id="region-description">One room, three functional regions. Select a table to take a closer look.</span></div>
+    <p class="fade-hint">Drag to orbit / scroll or pinch to zoom / right-drag to pan. Press <kbd>F</kbd> to fade between point cloud and model.</p>
+  </footer>
+  <script type="module" src="viewer.js?v=copy-v7"></script>
+</body>
+</html>

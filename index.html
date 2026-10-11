@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="./static/css/index.css?v=20261010-g1">
   <link rel="stylesheet" href="./static/css/demonstrations.css?v=20261009-loading-spinner">
   <link rel="stylesheet" href="./static/css/semantic-map.css?v=20261010">
+  <link rel="stylesheet" href="./static/css/workspace-stage.css?v=20261011">
+  <link rel="stylesheet" href="./static/css/reconstruction-figure.css?v=workspace-steps-v5">
   <link rel="stylesheet" href="./static/css/task-scene.css?v=20261010-dialogue">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23586f9c'/%3E%3Cpath d='M17 17h16c9 0 15 5 15 13 0 6-3 10-8 12l9 12H37l-7-10h-2v10H17V17zm11 9v10h5c3 0 5-2 5-5s-2-5-5-5h-5z' fill='white'/%3E%3C/svg%3E">
   <script defer src="./static/js/demos-config.js?v=20261009-release"></script>
@@ -22,6 +24,7 @@
   <script defer src="./static/js/index.js?v=20261010-g1"></script>
   <script type="module" src="./static/js/task-scene.js?v=20261011-surgeon"></script>
   <script defer src="./static/js/semantic-map-section.js?v=20261010"></script>
+  <script defer src="./static/js/workspace-stage.js?v=20261011"></script>
 </head>
 <body>
   <main>
@@ -150,6 +153,35 @@
         </div>
         <div class="semantic-caption"><p>Drag to orbit, scroll to zoom, and select an object to inspect it. Switch between original RGB and semantic colors.</p><div><button id="semantic-close" type="button" hidden>Close explorer</button><a href="./static/maps/room03/" target="_blank" rel="noopener">Open full explorer ↗</a></div></div>
         <noscript><p><a href="./static/maps/room03/">Open the semantic scene explorer</a>. JavaScript and WebGL are required.</p></noscript>
+      </div>
+    </section>
+
+    <section class="section workspace-section" id="workspace-3d">
+      <div class="workspace-container">
+        <div class="workspace-heading">
+          <div><p class="workspace-eyebrow">SPACE &amp; CONTEXT</p><h2>3D Surgical Workspace</h2><p class="workspace-intro">Explore the scene reconstruction and interact with the 3D workspace.</p></div>
+        </div>
+        <div id="scene-reconstruction" class="workspace-part" role="group" aria-labelledby="reconstruction-title">
+          <h3 id="reconstruction-title" class="workspace-part-title"><span class="workspace-part-number">1</span>Scene reconstruction</h3>
+          <figure class="reconstruction-figure">
+            <a class="reconstruction-image-link" href="./static/images/scene-reconstruction-v5-blue.png" target="_blank" rel="noopener" aria-label="View scene reconstruction figure at full size (opens in a new tab)">
+              <img src="./static/images/scene-reconstruction-v5-body.png" width="3000" height="820" loading="lazy" decoding="async" alt="Real-world surgical workspace with the person's face masked, point cloud, Astra and Blender, and the 3D model. SLAM + depth and RGB-D camera are shown below.">
+            </a>
+            <figcaption><a href="./static/images/scene-reconstruction-v5-blue.png" target="_blank" rel="noopener">View full-size figure <span aria-hidden="true">↗</span></a></figcaption>
+          </figure>
+        </div>
+        <div id="workspace-preview" class="workspace-part" role="group" aria-labelledby="workspace-preview-title">
+        <div class="workspace-part-heading">
+          <h3 id="workspace-preview-title" class="workspace-part-title"><span class="workspace-part-number">2</span>Interactive 3D preview</h3>
+          <a class="workspace-open" href="./static/models/clean-room/?v=copy-v7" target="_blank" rel="noopener">Explore full screen <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="workspace-shell" id="workspace-shell">
+          <div class="workspace-poster" id="workspace-poster"><img src="./static/models/clean-room/preview.png" alt="Reconstructed surgical workspace with three functional regions" width="1600" height="1200" loading="lazy"><button id="workspace-start" type="button">Explore the workspace <span aria-hidden="true">↗</span></button><span id="workspace-load-note" role="status"></span></div>
+          <iframe id="workspace-frame" title="Interactive 3D surgical workspace" data-src="./static/models/clean-room/?stage=1&amp;v=copy-v7" allow="fullscreen" tabindex="-1" aria-hidden="true"></iframe>
+        </div>
+        <div class="workspace-caption"><p>Explore the workspace in 3D. Select a region or adjust the slider to change the view.</p><a href="#semantic-map">Explore the semantic map <span aria-hidden="true">↑</span></a></div>
+        <noscript><p><a href="./static/models/clean-room/preview.png">View the workspace image</a>. Enable JavaScript for interactive exploration.</p></noscript>
+        </div>
       </div>
     </section>
 
