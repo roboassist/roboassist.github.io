@@ -1,0 +1,1747 @@
+{
+  "format": "semantic_web_map_v1",
+  "scene_id": "room",
+  "generated_utc": "2026-10-10T14:18:50.181497+00:00",
+  "coordinate_system": {
+    "frame_id": "map",
+    "units": "meter",
+    "up_axis": "Z",
+    "handedness": "right"
+  },
+  "semantic_geometry": {
+    "positions": {
+      "file": "semantic_positions.f32",
+      "type": "float32_le",
+      "components": 3
+    },
+    "colors": {
+      "file": "semantic_colors.rgb8",
+      "type": "uint8",
+      "components": 3,
+      "meaning": "source_rgb_with_user_requested_display_colors"
+    },
+    "point_count": 284293,
+    "source_point_count": 283523,
+    "added_display_point_count": 770,
+    "recovered_source_point_count": 5879
+  },
+  "environment": {
+    "file": "environment_4cm.ply",
+    "format": "binary_little_endian_ply",
+    "point_count": 254822,
+    "voxel_size_m": 0.04,
+    "source_point_count": 263068,
+    "geometry_cleanup": {
+      "method": "targeted spatial crop of elevated rear environmental patch",
+      "points_removed": 8246,
+      "condition": {
+        "x_less_than_m": -2.8,
+        "y_greater_than_m": 0.5,
+        "z_greater_than_m": 1.05
+      }
+    }
+  },
+  "semantic_bounds": {
+    "min": [
+      -4.863898754119873,
+      -3.4358365535736084,
+      -1.2553642988204956
+    ],
+    "max": [
+      2.7787160873413086,
+      3.74015736579895,
+      0.8621129989624023
+    ]
+  },
+  "object_count": 29,
+  "labels": {
+    "aluminum box": 1,
+    "bottle": 1,
+    "camera": 2,
+    "cup": 1,
+    "curtain": 10,
+    "electric outlet": 1,
+    "gauze": 1,
+    "lamp": 3,
+    "laparoscope": 1,
+    "pole": 1,
+    "surgical instruments": 1,
+    "syringe": 1,
+    "table": 3,
+    "tray": 1,
+    "tripod": 1
+  },
+  "objects": [
+    {
+      "id": "room:FG-01",
+      "group": "FG",
+      "object_id": "01",
+      "class_id": 4,
+      "label": "curtain",
+      "point_offset": 0,
+      "point_count": 32190,
+      "num_detections": 72,
+      "center": [
+        -1.3671092987060547,
+        2.796159267425537,
+        -0.19590476155281067
+      ],
+      "min_bound": [
+        -2.386464834213257,
+        1.8981165885925293,
+        -1.2461507320404053
+      ],
+      "max_bound": [
+        -0.3477538228034973,
+        3.694201707839966,
+        0.8543412089347839
+      ],
+      "extent": [
+        2.0387110710144043,
+        1.7960851192474365,
+        2.100492000579834
+      ],
+      "semantic_color_rgb8": [
+        77,
+        176,
+        74
+      ],
+      "quality_flags": [
+        "large_spatial_extent"
+      ],
+      "review_recommended": true,
+      "legacy_object_id": "room03:FG-02"
+    },
+    {
+      "id": "room:FG-02",
+      "group": "FG",
+      "object_id": "02",
+      "class_id": 30,
+      "label": "pole",
+      "point_offset": 32190,
+      "point_count": 300,
+      "num_detections": 29,
+      "center": [
+        -1.4011995792388916,
+        2.0260848999023438,
+        -0.2079004943370819
+      ],
+      "min_bound": [
+        -1.5035061836242676,
+        1.8716762065887451,
+        -0.8031673431396484
+      ],
+      "max_bound": [
+        -1.2988930940628052,
+        2.1804935932159424,
+        0.3873663544654846
+      ],
+      "extent": [
+        0.2046130895614624,
+        0.30881738662719727,
+        1.1905336380004883
+      ],
+      "semantic_color_rgb8": [
+        255,
+        127,
+        0
+      ],
+      "quality_flags": [],
+      "review_recommended": false,
+      "legacy_object_id": "room03:FG-04"
+    },
+    {
+      "id": "room:FG-03",
+      "group": "FG",
+      "object_id": "03",
+      "class_id": 23,
+      "label": "lamp",
+      "point_offset": 32490,
+      "point_count": 254,
+      "num_detections": 38,
+      "center": [
+        -1.4859240055084229,
+        1.9830242395401,
+        0.03366494178771973
+      ],
+      "min_bound": [
+        -1.633882999420166,
+        1.862452745437622,
+        -0.3310115933418274
+      ],
+      "max_bound": [
+        -1.3379650115966797,
+        2.103595733642578,
+        0.39834147691726685
+      ],
+      "extent": [
+        0.29591798782348633,
+        0.24114298820495605,
+        0.7293530702590942
+      ],
+      "semantic_color_rgb8": [
+        166,
+        87,
+        41
+      ],
+      "quality_flags": [],
+      "review_recommended": false,
+      "legacy_object_id": "room03:FG-05"
+    },
+    {
+      "id": "room:FG-04",
+      "group": "FG",
+      "object_id": "04",
+      "class_id": 23,
+      "label": "lamp",
+      "point_offset": 32744,
+      "point_count": 218,
+      "num_detections": 11,
+      "center": [
+        -2.2716174125671387,
+        1.1061627864837646,
+        -0.011870920658111572
+      ],
+      "min_bound": [
+        -2.4715676307678223,
+        0.9910752773284912,
+        -0.3688403367996216
+      ],
+      "max_bound": [
+        -2.071667432785034,
+        1.221250295639038,
+        0.34509849548339844
+      ],
+      "extent": [
+        0.3999001979827881,
+        0.23017501831054688,
+        0.71393883228302
+      ],
+      "semantic_color_rgb8": [
+        31,
+        120,
+        181
+      ],
+      "quality_flags": [
+        "low_point_count"
+      ],
+      "review_recommended": true,
+      "legacy_object_id": "room03:FG-10"
+    },
+    {
+      "id": "room:FG-05",
+      "group": "FG",
+      "object_id": "05",
+      "class_id": 23,
+      "label": "lamp",
+      "point_offset": 32962,
+      "point_count": 564,
+      "num_detections": 4,
+      "center": [
+        -3.6543948650360107,
+        1.362067699432373,
+        0.04933592677116394
+      ],
+      "min_bound": [
+        -4.178070545196533,
+        1.2769476175308228,
+        -0.5883011817932129
+      ],
+      "max_bound": [
+        -3.1307191848754883,
+        1.4471877813339233,
+        0.6869730353355408
+      ],
+      "extent": [
+        1.047351360321045,
+        0.17024016380310059,
+        1.2752742767333984
+      ],
+      "semantic_color_rgb8": [
+        173,
+        199,
+        232
+      ],
+      "quality_flags": [],
+      "review_recommended": false,
+      "legacy_object_id": "room03:FG-11"
+    },
+    {
+      "id": "room:FG-06",
+      "group": "FG",
+      "object_id": "06",
+      "class_id": 4,
+      "label": "curtain",
+      "point_offset": 33526,
+      "point_count": 2907,
+      "num_detections": 3,
+      "center": [
+        -2.7416131496429443,
+        2.295835018157959,
+        -0.4702054262161255
+      ],
+      "min_bound": [
+        -3.23242449760437,
+        1.7134236097335815,
+        -1.1200485229492188
+      ],
+      "max_bound": [
+        -2.2508018016815186,
+        2.878246545791626,
+        0.17963764071464539
+      ],
+      "extent": [
+        0.9816226959228516,
+        1.1648229360580444,
+        1.2996861934661865
+      ],
+      "semantic_color_rgb8": [
+        77,
+        176,
+        74
+      ],
+      "quality_flags": [],
+      "review_recommended": false,
+      "legacy_object_id": "room03:FG-14"
+    },
+    {
+      "id": "room:FG-07",
+      "group": "FG",
+      "object_id": "07",
+      "class_id": 4,
+      "label": "curtain",
+      "point_offset": 36433,
+      "point_count": 15594,
+      "num_detections": 59,
+      "center": [
+        -4.30531120300293,
+        0.18125475943088531,
+        0.15070639550685883
+      ],
+      "min_bound": [
+        -4.863898754119873,
+        -0.4428277313709259,
+        -0.4865281879901886
+      ],
+      "max_bound": [
+        -3.746723175048828,
+        0.8053372502326965,
+        0.7879409790039062
+      ],
+      "extent": [
+        1.117175579071045,
+        1.2481650114059448,
+        1.2744691371917725
+      ],
+      "semantic_color_rgb8": [
+        153,
+        79,
+        163
+      ],
+      "quality_flags": [],
+      "review_recommended": false,
+      "legacy_object_id": "room03:FG-15"
+    },
+    {
+      "id": "room:FG-08",
+      "group": "FG",
+      "object_id": "08",
+      "class_id": 31,
+      "label": "tripod",
+      "point_offset": 52027,
+      "point_count": 1513,
+      "num_detections": 63,
+      "center": [
+        -2.200669050216675,
+        0.7491157948970795,
+        -0.15124523639678955
+      ],
+      "min_bound": [
+        -2.4446752071380615,
+        0.46962839365005493,
+        -0.6728812456130981
+      ],
+      "max_bound": [
+        -1.956662893295288,
+        1.028603196144104,
+        0.37039077281951904
+      ],
+      "extent": [
+        0.48801231384277344,
+        0.5589748024940491,
+        1.0432720184326172
+      ],
+      "semantic_color_rgb8": [
+        23,
+        191,
+        207
+      ],
+      "quality_flags": [],
+      "review_recommended": false,
+      "oriented_bounds": {
+        "center": [
+          -2.212414803990148,
+          0.7522984667219782,
+          -0.15124523639678955
+        ],
+        "size": [
+          0.525884753768656,
+          0.4893440663640008,
+          1.0432720184326172
+        ],
+        "quaternion": [
+          0,
+          0,
+          0.6547408137173397,
+          0.7558534691676396
+        ],
+        "method": "minimum_area_xy_rectangle"
+      },
+      "geometry_refinement": {
+        "method": "user outline projected into calibrated 3D geometry",
+        "points_before": 1708,
+        "points_retained": 1513,
+        "outliers_excluded": 195,
+        "outline_padding_px": 2.5
+      },
+      "legacy_object_id": "room03:FG-21"
+    },
+    {
+      "id": "room:FG-09",
+      "group": "FG",
+      "object_id": "09",
+      "class_id": 4,
+      "label": "curtain",
+      "point_offset": 53540,
+      "point_count": 37874,
+      "num_detections": 83,
+      "center": [
+        -1.7868750095367432,
+        -1.8940261602401733,
+        0.21684324741363525
+      ],
+      "min_bound": [
+        -2.9631004333496094,
+        -3.12276291847229,
+        -0.42842650413513184
+      ],
+      "max_bound": [
+        -0.610649585723877,
+        -0.6652893424034119,
+        0.8621129989624023
+      ],
+      "extent": [
+        2.3524508476257324,
+        2.4574735164642334,
+        1.2905395030975342
+      ],
+      "semantic_color_rgb8": [
+        227,
+        26,
+        28
+      ],
+      "quality_flags": [
+        "large_spatial_extent"
+      ],
+      "review_recommended": true,
+      "legacy_object_id": "room03:FG-24"
+    },
+    {
+      "id": "room:FG-10",
+      "group": "FG",
+      "object_id": "10",
+      "class_id": null,
+      "label": "surgical instruments",
+      "point_offset": 91414,
+      "point_count": 668,
+      "num_detections": 93,
+      "center": [
+        -2.330775260925293,
+        0.012797266244888306,
+        -0.25592681765556335
+      ],
+      "min_bound": [
+        -2.5895533561706543,
+        -0.2858368158340454,
+        -0.3293939530849457
+      ],
+      "max_bound": [
+        -2.0719971656799316,
+        0.311431348323822,
+        -0.18245968222618103
+      ],
+      "extent": [
+        0.5175561904907227,
+        0.5972681641578674,
+        0.14693427085876465
+      ],
+      "semantic_color_rgb8": [
+        153,
+        79,
+        163
+      ],
+      "quality_flags": [],
+      "review_recommended": false,
+      "source_label": "equipment",
+      "source_class_id": 32,
+      "label_zh": "手术器械",
+      "annotation_source": "user",
+      "oriented_bounds": {
+        "center": [
+          -2.346408980866357,
+          0.0489305008516339,
+          -0.25592681765556335
+        ],
+        "size": [
+          0.4640075382235208,
+          0.5179116750806793,
+          0.14693427085876465
+        ],
+        "quaternion": [
+          0,
+          0,
+          0.42380425344848505,
+          0.9057538047168072
+        ],
+        "method": "minimum_area_xy_rectangle"
+      },
+      "geometry_refinement": {
+        "method": "user outline projected into calibrated 3D geometry",
+        "points_before": 789,
+        "points_retained": 668,
+        "outliers_excluded": 121,
+        "outline_padding_px": 2.5
+      },
+      "legacy_object_id": "room03:FG-27"
+    },
+    {
+      "id": "room:FG-11",
+      "group": "FG",
+      "object_id": "11",
+      "class_id": 4,
+      "label": "curtain",
+      "point_offset": 92082,
+      "point_count": 15561,
+      "num_detections": 14,
+      "center": [
+        0.274497389793396,
+        1.5267386436462402,
+        -0.3645787239074707
+      ],
+      "min_bound": [
+        -1.1596966981887817,
+        0.4254429042339325,
+        -1.2553642988204956
+      ],
+      "max_bound": [
+        1.7086914777755737,
+        2.6280343532562256,
+        0.5262068510055542
+      ],
+      "extent": [
+        2.8683881759643555,
+        2.2025914192199707,
+        1.7815711498260498
+      ],
+      "semantic_color_rgb8": [
+        255,
+        127,
+        0
+      ],
+      "quality_flags": [
+        "large_spatial_extent"
+      ],
+      "review_recommended": true,
+      "legacy_object_id": "room03:FG-28"
+    },
+    {
+      "id": "room:FG-12",
+      "group": "FG",
+      "object_id": "12",
+      "class_id": 4,
+      "label": "curtain",
+      "point_offset": 107643,
+      "point_count": 70750,
+      "num_detections": 23,
+      "center": [
+        0.7045108079910278,
+        -0.14947748184204102,
+        -0.31783396005630493
+      ],
+      "min_bound": [
+        -1.369694471359253,
+        -3.4358365535736084,
+        -1.2284977436065674
+      ],
+      "max_bound": [
+        2.7787160873413086,
+        3.1368815898895264,
+        0.5928298234939575
+      ],
+      "extent": [
+        4.148410797119141,
+        6.572718143463135,
+        1.821327567100525
+      ],
+      "semantic_color_rgb8": [
+        247,
+        130,
+        191
+      ],
+      "quality_flags": [
+        "large_spatial_extent"
+      ],
+      "review_recommended": true,
+      "legacy_object_id": "room03:FG-30"
+    },
+    {
+      "id": "room:FG-13",
+      "group": "FG",
+      "object_id": "13",
+      "class_id": null,
+      "label": "laparoscope",
+      "point_offset": 178393,
+      "point_count": 1802,
+      "num_detections": 78,
+      "center": [
+        -1.962678074836731,
+        -0.25393733382225037,
+        -0.17421534657478333
+      ],
+      "min_bound": [
+        -2.2627949714660645,
+        -0.607382595539093,
+        -0.31873244047164917
+      ],
+      "max_bound": [
+        -1.6625611782073975,
+        0.09950792044401169,
+        -0.029698261991143227
+      ],
+      "extent": [
+        0.600233793258667,
+        0.7068905234336853,
+        0.2890341877937317
+      ],
+      "semantic_color_rgb8": [
+        189,
+        189,
+        33
+      ],
+      "quality_flags": [],
+      "review_recommended": false,
+      "source_label": "sewing machine",
+      "source_class_id": 62,
+      "label_zh": "腹腔镜",
+      "annotation_source": "user",
+      "legacy_object_id": "room03:FG-32"
+    },
+    {
+      "id": "room:FG-14",
+      "group": "FG",
+      "object_id": "14",
+      "class_id": null,
+      "label": "camera",
+      "point_offset": 180195,
+      "point_count": 1619,
+      "num_detections": 63,
+      "center": [
+        -2.2695454359054565,
+        -0.9010422825813293,
+        -0.14823743607848883
+      ],
+      "min_bound": [
+        -2.531294107437134,
+        -1.257359504699707,
+        -0.31892523169517517
+      ],
+      "max_bound": [
+        -2.0077967643737793,
+        -0.5447250604629517,
+        0.022450359538197517
+      ],
+      "extent": [
+        0.5234973430633545,
+        0.7126344442367554,
+        0.3413755912333727
+      ],
+      "semantic_color_rgb8": [
+        23,
+        191,
+        207
+      ],
+      "quality_flags": [],
+      "review_recommended": false,
+      "source_label": "equipment",
+      "source_class_id": 32,
+      "label_zh": "相机",
+      "annotation_source": "user",
+      "oriented_bounds": {
+        "center": [
+          -2.2964994372551772,
+          -0.9292996740772798,
+          -0.14823743607848883
+        ],
+        "size": [
+          0.6390181449684521,
+          0.5006454380482543,
+          0.3413755912333727
+        ],
+        "quaternion": [
+          0,
+          0,
+          0.46019978478385165,
+          0.8878153851364013
+        ],
+        "method": "minimum_area_xy_rectangle"
+      },
+      "geometry_refinement": {
+        "method": "user outline with largest connected 3D component",
+        "points_before": 1984,
+        "points_retained": 1619,
+        "table_points_reassigned": 49,
+        "outliers_excluded": 316,
+        "outline_padding_px": 2.5,
+        "component_radius_m": 0.045
+      },
+      "legacy_object_id": "room03:FG-33"
+    },
+    {
+      "id": "room:FG-15",
+      "group": "FG",
+      "object_id": "15",
+      "class_id": 4,
+      "label": "curtain",
+      "point_offset": 181814,
+      "point_count": 2828,
+      "num_detections": 4,
+      "center": [
+        -2.3313467502593994,
+        2.9390478134155273,
+        -0.39489689469337463
+      ],
+      "min_bound": [
+        -2.8738021850585938,
+        2.3176822662353516,
+        -1.1637409925460815
+      ],
+      "max_bound": [
+        -1.788891315460205,
+        3.560413122177124,
+        0.3739472031593323
+      ],
+      "extent": [
+        1.0849108695983887,
+        1.2427308559417725,
+        1.5376882553100586
+      ],
+      "semantic_color_rgb8": [
+        31,
+        120,
+        181
+      ],
+      "quality_flags": [],
+      "review_recommended": false,
+      "legacy_object_id": "room03:FG-34"
+    },
+    {
+      "id": "room:FG-16",
+      "group": "FG",
+      "object_id": "16",
+      "class_id": null,
+      "label": "tray",
+      "point_offset": 184642,
+      "point_count": 582,
+      "num_detections": 53,
+      "center": [
+        -1.783866286277771,
+        -0.8101367950439453,
+        -0.2802303731441498
+      ],
+      "min_bound": [
+        -1.9946340322494507,
+        -1.0342882871627808,
+        -0.354404091835022
+      ],
+      "max_bound": [
+        -1.5730985403060913,
+        -0.5859853625297546,
+        -0.20605666935443878
+      ],
+      "extent": [
+        0.4215354919433594,
+        0.4483029246330261,
+        0.1483474224805832
+      ],
+      "semantic_color_rgb8": [
+        56,
+        125,
+        184
+      ],
+      "quality_flags": [],
+      "review_recommended": false,
+      "source_label": "equipment",
+      "source_class_id": 32,
+      "label_zh": "托盘",
+      "annotation_source": "user",
+      "legacy_object_id": "room03:FG-37"
+    },
+    {
+      "id": "room:FG-17",
+      "group": "FG",
+      "object_id": "17",
+      "class_id": 5,
+      "label": "table",
+      "point_offset": 185224,
+      "point_count": 15939,
+      "num_detections": 32,
+      "center": [
+        -2.7182493209838867,
+        -0.26757103204727173,
+        -0.6338207274675369
+      ],
+      "min_bound": [
+        -4.231367111206055,
+        -1.5605791807174683,
+        -1.078916311264038
+      ],
+      "max_bound": [
+        -1.2051315307617188,
+        1.0254371166229248,
+        -0.18872514367103577
+      ],
+      "extent": [
+        3.026235580444336,
+        2.586016297340393,
+        0.8901911675930023
+      ],
+      "semantic_color_rgb8": [
+        54,
+        180,
+        222
+      ],
+      "quality_flags": [
+        "large_spatial_extent"
+      ],
+      "review_recommended": true,
+      "surface_repair": {
+        "method": "recover measured tabletop points from source export",
+        "source_object_id": "room03:FG-17",
+        "source_label": "bed",
+        "recovered_source_point_count": 5879,
+        "original_point_count": 10011,
+        "plane_z_ax_by_c": [
+          0.04021402510976769,
+          0.005828624307248564,
+          -0.19913837091939188
+        ],
+        "footprint_center_xy": [
+          -2.7527937175100448,
+          -0.16481563845742844
+        ],
+        "footprint_u_xy": [
+          -0.8258540984674396,
+          0.5638838604221018
+        ],
+        "footprint_v_xy": [
+          0.5638838604221018,
+          0.8258540984674396
+        ],
+        "footprint_limits_uv": [
+          [
+            -1.3699074668205884,
+            1.3971354678725667
+          ],
+          [
+            -0.6525442284118854,
+            0.6525442284118856
+          ]
+        ],
+        "max_plane_distance_m": 0.025,
+        "recovered_rgb": "cyan-blue matching existing table",
+        "generated_geometry": false
+      },
+      "camera_surface_points_reassigned": 49,
+      "legacy_object_id": "room03:FG-38"
+    },
+    {
+      "id": "room:FG-18",
+      "group": "FG",
+      "object_id": "18",
+      "class_id": 124,
+      "label": "electric outlet",
+      "point_offset": 201163,
+      "point_count": 373,
+      "num_detections": 24,
+      "center": [
+        -1.5530765056610107,
+        -1.9632008075714111,
+        -0.5945452451705933
+      ],
+      "min_bound": [
+        -1.6480783224105835,
+        -2.0618679523468018,
+        -0.8527283668518066
+      ],
+      "max_bound": [
+        -1.458074688911438,
+        -1.86453378200531,
+        -0.3363620936870575
+      ],
+      "extent": [
+        0.1900036334991455,
+        0.1973341703414917,
+        0.5163662433624268
+      ],
+      "semantic_color_rgb8": [
+        166,
+        87,
+        41
+      ],
+      "quality_flags": [],
+      "review_recommended": false,
+      "legacy_object_id": "room03:FG-41"
+    },
+    {
+      "id": "room:FG-19",
+      "group": "FG",
+      "object_id": "19",
+      "class_id": 35,
+      "label": "bottle",
+      "point_offset": 201536,
+      "point_count": 150,
+      "num_detections": 13,
+      "center": [
+        -1.606619954109192,
+        1.3322497606277466,
+        -0.18896978721022606
+      ],
+      "min_bound": [
+        -1.6752816438674927,
+        1.2654180526733398,
+        -0.28330302238464355
+      ],
+      "max_bound": [
+        -1.5379582643508911,
+        1.3990814685821533,
+        -0.09463655203580856
+      ],
+      "extent": [
+        0.13732337951660156,
+        0.13366341590881348,
+        0.188666470348835
+      ],
+      "semantic_color_rgb8": [
+        128,
+        128,
+        128
+      ],
+      "quality_flags": [],
+      "review_recommended": false,
+      "geometry_source": "user_requested_procedural_surface",
+      "retained_source_point_count": 0,
+      "added_display_point_count": 150,
+      "geometry_parameters": {
+        "shape": "rough sparse bottle with small pointed nozzle and rearward depth drift",
+        "anchor": [
+          -1.5977213382720947,
+          1.3094401359558105,
+          -0.28330302238464355
+        ],
+        "nominal_height_m": 0.18902218341827393,
+        "nominal_body_diameter_m": 0.09,
+        "nominal_neck_diameter_m": 0.019,
+        "nominal_nozzle_base_diameter_m": 0.012,
+        "nominal_nozzle_tip_diameter_m": 0.0028,
+        "seed": 304317,
+        "rear_drift_direction_map": [
+          -0.6246950475544243,
+          0.7808688094430304,
+          0
+        ],
+        "rear_trail_point_count": 16,
+        "rear_trail_offset_range_m": [
+          0.018,
+          0.061
+        ],
+        "surface_drift_max_m": 0.028,
+        "sampling": "fully random nonuniform surface samples, asymmetric roughness and rearward ghost clusters",
+        "display_thinning": {
+          "method": "feature-aware random subset preserving measured points and original bounds",
+          "seed": 31943,
+          "points_before": 232,
+          "points_after": 150,
+          "parts": [
+            {
+              "name": "body",
+              "before": 155,
+              "after": 96
+            },
+            {
+              "name": "shoulder",
+              "before": 26,
+              "after": 17
+            },
+            {
+              "name": "neck",
+              "before": 12,
+              "after": 8
+            },
+            {
+              "name": "nozzle",
+              "before": 12,
+              "after": 6
+            },
+            {
+              "name": "base",
+              "before": 7,
+              "after": 7
+            },
+            {
+              "name": "rear trail",
+              "before": 20,
+              "after": 16
+            }
+          ]
+        }
+      },
+      "source_geometry_point_count": 75,
+      "source_quality_flags": [
+        "very_low_point_count"
+      ],
+      "point_size_scale": 0.42,
+      "legacy_object_id": "room03:FG-43"
+    },
+    {
+      "id": "room:FG-20",
+      "group": "FG",
+      "object_id": "20",
+      "class_id": 5,
+      "label": "table",
+      "point_offset": 201686,
+      "point_count": 6273,
+      "num_detections": 27,
+      "center": [
+        -2.1665619015693665,
+        1.7538508474826813,
+        -0.639169454574585
+      ],
+      "min_bound": [
+        -3.2154881954193115,
+        0.7492077946662903,
+        -1.0681129693984985
+      ],
+      "max_bound": [
+        -1.1176356077194214,
+        2.7584939002990723,
+        -0.2102259397506714
+      ],
+      "extent": [
+        2.09785258769989,
+        2.009286105632782,
+        0.8578870296478271
+      ],
+      "semantic_color_rgb8": [
+        189,
+        189,
+        33
+      ],
+      "quality_flags": [
+        "large_spatial_extent"
+      ],
+      "review_recommended": true,
+      "oriented_bounds": {
+        "center": [
+          -2.1544867504862255,
+          1.7411697441512604,
+          -0.639169454574585
+        ],
+        "size": [
+          1.691056538445109,
+          1.3628059409313884,
+          0.8578870296478271
+        ],
+        "quaternion": [
+          0,
+          0,
+          0.9459120727237837,
+          0.32442310441057565
+        ],
+        "method": "user_aligned_table_footprint"
+      },
+      "geometry_refinement": {
+        "method": "user-aligned 3D footprint with measured tabletop plane",
+        "points_before": 6479,
+        "points_retained": 6273,
+        "outliers_excluded": 206,
+        "plane_z_ax_by_c": [
+          0.02809468911615701,
+          -0.012268025579607822,
+          -0.19828126194750736
+        ],
+        "footprint_center_xy": [
+          -2.137355280884599,
+          1.7288521734805573
+        ],
+        "footprint_u_xy": [
+          -0.7894992986492094,
+          0.6137514622649843
+        ],
+        "footprint_v_xy": [
+          -0.6137514622649843,
+          -0.7894992986492094
+        ],
+        "footprint_limits_uv": [
+          [
+            -0.8244032362130156,
+            0.8571971625893882
+          ],
+          [
+            -0.6706075027173519,
+            0.670607502717352
+          ]
+        ],
+        "footprint_padding_m": 0.012,
+        "tabletop_plane_above_tolerance_m": 0.05,
+        "support_points_preserved": 1597
+      },
+      "legacy_object_id": "room03:FG-44"
+    },
+    {
+      "id": "room:FG-21",
+      "group": "FG",
+      "object_id": "21",
+      "class_id": null,
+      "label": "camera",
+      "point_offset": 207959,
+      "point_count": 82,
+      "num_detections": 4,
+      "center": [
+        -2.211652994155884,
+        0.7622227072715759,
+        0.311029851436615
+      ],
+      "min_bound": [
+        -2.3006935119628906,
+        0.6422755718231201,
+        0.24996528029441833
+      ],
+      "max_bound": [
+        -2.122612476348877,
+        0.8821698427200317,
+        0.37209445238113403
+      ],
+      "extent": [
+        0.17808103561401367,
+        0.23989427089691162,
+        0.1221291720867157
+      ],
+      "semantic_color_rgb8": [
+        173,
+        199,
+        232
+      ],
+      "quality_flags": [
+        "very_low_point_count"
+      ],
+      "review_recommended": true,
+      "source_label": "equipment",
+      "source_class_id": 32,
+      "label_zh": "相机",
+      "annotation_source": "user",
+      "legacy_object_id": "room03:FG-47"
+    },
+    {
+      "id": "room:FG-22",
+      "group": "FG",
+      "object_id": "22",
+      "class_id": 4,
+      "label": "curtain",
+      "point_offset": 208041,
+      "point_count": 22651,
+      "num_detections": 23,
+      "center": [
+        0.6468965411186218,
+        -1.8187227249145508,
+        -0.25179430842399597
+      ],
+      "min_bound": [
+        -0.24967090785503387,
+        -2.9817545413970947,
+        -1.0883537530899048
+      ],
+      "max_bound": [
+        1.543463945388794,
+        -0.6556909680366516,
+        0.5847651362419128
+      ],
+      "extent": [
+        1.7931348085403442,
+        2.326063632965088,
+        1.6731188297271729
+      ],
+      "semantic_color_rgb8": [
+        56,
+        125,
+        184
+      ],
+      "quality_flags": [
+        "large_spatial_extent"
+      ],
+      "review_recommended": true,
+      "legacy_object_id": "room03:FG-49"
+    },
+    {
+      "id": "room:FG-23",
+      "group": "FG",
+      "object_id": "23",
+      "class_id": 5,
+      "label": "table",
+      "point_offset": 230692,
+      "point_count": 10135,
+      "num_detections": 293,
+      "center": [
+        1.1510224342346191,
+        -0.06369727849960327,
+        -0.6678748726844788
+      ],
+      "min_bound": [
+        0.14716081321239471,
+        -1.1661441326141357,
+        -1.1117439270019531
+      ],
+      "max_bound": [
+        2.154884099960327,
+        1.0387495756149292,
+        -0.22400584816932678
+      ],
+      "extent": [
+        2.007723331451416,
+        2.2048935890197754,
+        0.8877381086349487
+      ],
+      "semantic_color_rgb8": [
+        77,
+        176,
+        74
+      ],
+      "quality_flags": [
+        "large_spatial_extent"
+      ],
+      "review_recommended": true,
+      "legacy_object_id": "room03:FG-50"
+    },
+    {
+      "id": "room:FG-24",
+      "group": "FG",
+      "object_id": "24",
+      "class_id": 4,
+      "label": "curtain",
+      "point_offset": 240827,
+      "point_count": 5488,
+      "num_detections": 14,
+      "center": [
+        1.5793808698654175,
+        -0.36899039149284363,
+        -0.3835623562335968
+      ],
+      "min_bound": [
+        0.9283285140991211,
+        -1.4849447011947632,
+        -1.0941481590270996
+      ],
+      "max_bound": [
+        2.230433225631714,
+        0.7469639182090759,
+        0.327023446559906
+      ],
+      "extent": [
+        1.3021047115325928,
+        2.2319085597991943,
+        1.4211716651916504
+      ],
+      "semantic_color_rgb8": [
+        153,
+        79,
+        163
+      ],
+      "quality_flags": [
+        "large_spatial_extent"
+      ],
+      "review_recommended": true,
+      "legacy_object_id": "room03:FG-51"
+    },
+    {
+      "id": "room:FG-25",
+      "group": "FG",
+      "object_id": "25",
+      "class_id": 4,
+      "label": "curtain",
+      "point_offset": 246315,
+      "point_count": 37323,
+      "num_detections": 35,
+      "center": [
+        0.14065366983413696,
+        1.486315131187439,
+        -0.46053606271743774
+      ],
+      "min_bound": [
+        -1.9472249746322632,
+        -0.7675270438194275,
+        -1.2420324087142944
+      ],
+      "max_bound": [
+        2.228532314300537,
+        3.74015736579895,
+        0.32096031308174133
+      ],
+      "extent": [
+        4.17575740814209,
+        4.507684230804443,
+        1.5629926919937134
+      ],
+      "semantic_color_rgb8": [
+        255,
+        127,
+        0
+      ],
+      "quality_flags": [
+        "large_spatial_extent"
+      ],
+      "review_recommended": true,
+      "legacy_object_id": "room03:FG-52"
+    },
+    {
+      "id": "room:FG-26",
+      "group": "FG",
+      "object_id": "26",
+      "class_id": null,
+      "label": "aluminum box",
+      "point_offset": 283638,
+      "point_count": 195,
+      "num_detections": null,
+      "center": [
+        0.514329805970192,
+        0.010262951254844666,
+        -0.2463621199131012
+      ],
+      "min_bound": [
+        0.39980587363243103,
+        -0.1014685183763504,
+        -0.2878263294696808
+      ],
+      "max_bound": [
+        0.6288537383079529,
+        0.12199442088603973,
+        -0.2048979103565216
+      ],
+      "extent": [
+        0.22904786467552185,
+        0.22346293926239014,
+        0.08292841911315918
+      ],
+      "semantic_color_rgb8": [
+        150,
+        172,
+        192
+      ],
+      "quality_flags": [],
+      "review_recommended": false,
+      "parent_object_id": "room:FG-23",
+      "geometry_source": "user_requested_procedural_surface",
+      "geometry_parameters": {
+        "shape": "irregular rounded cuboid",
+        "nominal_size_m": [
+          0.19,
+          0.125,
+          0.075
+        ],
+        "rotation_z_radians": 0.7503981633974482,
+        "anchor": [
+          0.5175036191940308,
+          0.010178766213357449,
+          -0.26740968227386475
+        ],
+        "seed": 31855,
+        "sampling": "random nonuniform surfaces with roughness, missing coverage and rearward ghost points",
+        "rear_drift_direction_map": [
+          -0.6246950475544243,
+          0.7808688094430304,
+          0
+        ],
+        "rear_trail_point_count": 19,
+        "rear_trail_offset_range_m": [
+          0.014,
+          0.048
+        ],
+        "procedural_base_height_m": -0.28702664375305176,
+        "display_thinning": {
+          "method": "feature-aware random subset preserving measured points and original bounds",
+          "seed": 31955,
+          "points_before": 310,
+          "points_after": 195,
+          "parts": [
+            {
+              "name": "cuboid surfaces",
+              "before": 280,
+              "after": 176
+            },
+            {
+              "name": "rear trail",
+              "before": 30,
+              "after": 19
+            }
+          ]
+        }
+      },
+      "previous_id": "room03:MAN-01",
+      "retained_source_point_count": 0,
+      "added_display_point_count": 195,
+      "point_size_scale": 0.45,
+      "legacy_object_id": "room03:FG-55"
+    },
+    {
+      "id": "room:FG-27",
+      "group": "FG",
+      "object_id": "27",
+      "class_id": null,
+      "label": "gauze",
+      "point_offset": 283833,
+      "point_count": 170,
+      "num_detections": null,
+      "center": [
+        0.72226682305336,
+        0.24454497545957565,
+        -0.22677035629749298
+      ],
+      "min_bound": [
+        0.6371866464614868,
+        0.15851379930973053,
+        -0.28934088349342346
+      ],
+      "max_bound": [
+        0.8073469996452332,
+        0.3305761516094208,
+        -0.1641998291015625
+      ],
+      "extent": [
+        0.17016035318374634,
+        0.17206235229969025,
+        0.12514105439186096
+      ],
+      "semantic_color_rgb8": [
+        220,
+        218,
+        203
+      ],
+      "quality_flags": [],
+      "review_recommended": false,
+      "parent_object_id": "room:FG-23",
+      "geometry_source": "user_requested_procedural_surface",
+      "geometry_parameters": {
+        "shape": "irregular rounded cube",
+        "nominal_size_m": [
+          0.115,
+          0.108,
+          0.112
+        ],
+        "rotation_z_radians": 0.8603981633974482,
+        "anchor": [
+          0.7233625054359436,
+          0.2334672510623932,
+          -0.29280906915664673
+        ],
+        "seed": 31856,
+        "sampling": "random nonuniform surfaces with roughness, missing coverage and rearward ghost points",
+        "rear_drift_direction_map": [
+          -0.6246950475544243,
+          0.7808688094430304,
+          0
+        ],
+        "rear_trail_point_count": 20,
+        "rear_trail_offset_range_m": [
+          0.013,
+          0.043
+        ],
+        "procedural_base_height_m": -0.2887488007545471,
+        "display_thinning": {
+          "method": "feature-aware random subset preserving measured points and original bounds",
+          "seed": 31956,
+          "points_before": 280,
+          "points_after": 170,
+          "parts": [
+            {
+              "name": "cloth surfaces",
+              "before": 250,
+              "after": 150
+            },
+            {
+              "name": "rear trail",
+              "before": 30,
+              "after": 20
+            }
+          ]
+        }
+      },
+      "previous_id": "room03:MAN-02",
+      "retained_source_point_count": 0,
+      "added_display_point_count": 170,
+      "point_size_scale": 0.42,
+      "legacy_object_id": "room03:FG-56"
+    },
+    {
+      "id": "room:FG-28",
+      "group": "FG",
+      "object_id": "28",
+      "class_id": null,
+      "label": "syringe",
+      "num_detections": null,
+      "quality_flags": [],
+      "review_recommended": false,
+      "parent_object_id": "room:FG-20",
+      "geometry_source": "procedural_surface_with_existing_points",
+      "geometry_parameters": {
+        "shape": "slightly irregular syringe barrel, needle and plunger",
+        "anchor": [
+          -1.4412237405776978,
+          1.4588886499404907,
+          -0.2667704224586487
+        ],
+        "nominal_height_m": 0.206,
+        "nominal_diameter_m": 0.024,
+        "seed": 31857,
+        "orientation": "needle_up",
+        "rotation_about_horizontal_axis_degrees": 180,
+        "sampling": "random nonuniform surfaces with roughness, missing coverage and rearward ghost points",
+        "rear_drift_direction_map": [
+          -0.6246950475544243,
+          0.7808688094430304,
+          0
+        ],
+        "rear_trail_point_count": 12,
+        "rear_trail_offset_range_m": [
+          0.005,
+          0.018
+        ],
+        "procedural_base_height_m": -0.27105432748794556,
+        "display_thinning": {
+          "method": "feature-aware random subset preserving measured points and original bounds",
+          "seed": 31957,
+          "points_before": 203,
+          "points_after": 125,
+          "parts": [
+            {
+              "name": "barrel",
+              "before": 112,
+              "after": 64
+            },
+            {
+              "name": "plunger rod",
+              "before": 16,
+              "after": 10
+            },
+            {
+              "name": "plunger button",
+              "before": 10,
+              "after": 6
+            },
+            {
+              "name": "flange",
+              "before": 14,
+              "after": 8
+            },
+            {
+              "name": "needle",
+              "before": 16,
+              "after": 9
+            },
+            {
+              "name": "barrel markings",
+              "before": 4,
+              "after": 3
+            },
+            {
+              "name": "rear trail",
+              "before": 18,
+              "after": 12
+            }
+          ]
+        }
+      },
+      "retained_source_point_count": 13,
+      "added_display_point_count": 112,
+      "point_offset": 284003,
+      "point_count": 125,
+      "min_bound": [
+        -1.4722845554351807,
+        1.4199872016906738,
+        -0.26799914240837097
+      ],
+      "max_bound": [
+        -1.4197213649749756,
+        1.4983699321746826,
+        -0.057754479348659515
+      ],
+      "center": [
+        -1.4460029602050781,
+        1.4591785669326782,
+        -0.16287681087851524
+      ],
+      "extent": [
+        0.05256319046020508,
+        0.07838273048400879,
+        0.21024466305971146
+      ],
+      "semantic_color_rgb8": [
+        121,
+        171,
+        192
+      ],
+      "point_size_scale": 0.26,
+      "legacy_object_id": "room03:FG-57"
+    },
+    {
+      "id": "room:FG-29",
+      "group": "FG",
+      "object_id": "29",
+      "class_id": null,
+      "label": "cup",
+      "num_detections": null,
+      "quality_flags": [],
+      "review_recommended": false,
+      "parent_object_id": "room:FG-20",
+      "geometry_source": "procedural_surface_with_existing_points",
+      "geometry_parameters": {
+        "shape": "slightly irregular open tapered cup",
+        "anchor": [
+          -1.7252110242843628,
+          1.1484044790267944,
+          -0.2540935277938843
+        ],
+        "nominal_height_m": 0.091,
+        "nominal_diameter_m": 0.094,
+        "seed": 31858,
+        "sampling": "random nonuniform surfaces with roughness, missing coverage and rearward ghost points",
+        "rear_drift_direction_map": [
+          -0.6246950475544243,
+          0.7808688094430304,
+          0
+        ],
+        "rear_trail_point_count": 15,
+        "rear_trail_offset_range_m": [
+          0.012,
+          0.043
+        ],
+        "procedural_base_height_m": -0.2705322802066803,
+        "display_thinning": {
+          "method": "feature-aware random subset preserving measured points and original bounds",
+          "seed": 31958,
+          "points_before": 267,
+          "points_after": 165,
+          "parts": [
+            {
+              "name": "cup sides",
+              "before": 145,
+              "after": 85
+            },
+            {
+              "name": "rim",
+              "before": 32,
+              "after": 20
+            },
+            {
+              "name": "inner wall",
+              "before": 23,
+              "after": 13
+            },
+            {
+              "name": "bottom",
+              "before": 20,
+              "after": 10
+            },
+            {
+              "name": "rear trail",
+              "before": 25,
+              "after": 15
+            }
+          ]
+        }
+      },
+      "retained_source_point_count": 22,
+      "added_display_point_count": 143,
+      "point_offset": 284128,
+      "point_count": 165,
+      "min_bound": [
+        -1.7952381372451782,
+        1.099704623222351,
+        -0.2693188488483429
+      ],
+      "max_bound": [
+        -1.6673005819320679,
+        1.2256773710250854,
+        -0.18076126277446747
+      ],
+      "center": [
+        -1.731269359588623,
+        1.1626909971237183,
+        -0.22504005581140518
+      ],
+      "extent": [
+        0.12793755531311035,
+        0.12597274780273438,
+        0.08855758607387543
+      ],
+      "semantic_color_rgb8": [
+        214,
+        205,
+        183
+      ],
+      "point_size_scale": 0.42,
+      "legacy_object_id": "room03:FG-58"
+    }
+  ],
+  "source_checksums": {
+    "semantic_map_sha256": "0ef29bc7a924a3d33e8b2c106aca9c29d1b20de91f46b75acbee5c0dba0a0711",
+    "environment_npz_sha256": "8fcbc6c06e0ddbbb9fffa206c25340e69d76c698ea55724b494af80d6953a6b3"
+  },
+  "notes": [
+    "Do not assume object IDs remain stable after rebuilding the semantic map.",
+    "User-curated labels and removals are recorded in annotation_edits.json; original input archive remains unchanged.",
+    "Human-assigned classes use class_id=null; source_label and source_class_id preserve the original annotation."
+  ],
+  "annotation_edits_file": "annotation_edits.json",
+  "object_aliases": {
+    "room03:FG-02": "room:FG-01",
+    "room03:FG-04": "room:FG-02",
+    "room03:FG-05": "room:FG-03",
+    "room03:FG-10": "room:FG-04",
+    "room03:FG-11": "room:FG-05",
+    "room03:FG-14": "room:FG-06",
+    "room03:FG-15": "room:FG-07",
+    "room03:FG-21": "room:FG-08",
+    "room03:FG-24": "room:FG-09",
+    "room03:FG-27": "room:FG-10",
+    "room03:FG-28": "room:FG-11",
+    "room03:FG-30": "room:FG-12",
+    "room03:FG-32": "room:FG-13",
+    "room03:FG-33": "room:FG-14",
+    "room03:FG-34": "room:FG-15",
+    "room03:FG-37": "room:FG-16",
+    "room03:FG-38": "room:FG-17",
+    "room03:FG-41": "room:FG-18",
+    "room03:FG-43": "room:FG-19",
+    "room03:FG-44": "room:FG-20",
+    "room03:FG-47": "room:FG-21",
+    "room03:FG-49": "room:FG-22",
+    "room03:FG-50": "room:FG-23",
+    "room03:FG-51": "room:FG-24",
+    "room03:FG-52": "room:FG-25",
+    "room03:FG-55": "room:FG-26",
+    "room03:FG-56": "room:FG-27",
+    "room03:FG-57": "room:FG-28",
+    "room03:FG-58": "room:FG-29",
+    "room03:MAN-01": "room:FG-26",
+    "room03:MAN-02": "room:FG-27"
+  },
+  "source_scene_id": "room03"
+}
