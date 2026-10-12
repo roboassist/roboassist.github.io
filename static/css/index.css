@@ -29,6 +29,7 @@ a {
 }
 
 #video,
+#project-video,
 #abstract,
 #framework,
 #runtime-safety {
@@ -470,7 +471,8 @@ a {
     gap: 1.25rem;
   }
 
-  #video {
+  #video,
+  #project-video {
     scroll-margin-top: 1rem;
   }
 }
@@ -479,6 +481,19 @@ a {
   border-radius: 1.1rem;
   overflow: hidden;
   position: relative;
+  width: 100%;
+}
+
+.project-video-player {
+  background: #111722;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.project-video-player video {
+  aspect-ratio: 16 / 9;
+  display: block;
+  height: auto;
   width: 100%;
 }
 
