@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="./static/css/demonstrations.css?v=20261009-loading-spinner">
   <link rel="stylesheet" href="./static/css/semantic-map.css?v=20261010">
   <link rel="stylesheet" href="./static/css/workspace-stage.css?v=20261011">
-  <link rel="stylesheet" href="./static/css/reconstruction-figure.css?v=native-figure-v6">
+  <link rel="stylesheet" href="./static/css/reconstruction-figure.css?v=20261012-memory-workflow">
   <link rel="stylesheet" href="./static/css/task-scene.css?v=20261010-dialogue">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23586f9c'/%3E%3Cpath d='M17 17h16c9 0 15 5 15 13 0 6-3 10-8 12l9 12H37l-7-10h-2v10H17V17zm11 9v10h5c3 0 5-2 5-5s-2-5-5-5h-5z' fill='white'/%3E%3C/svg%3E">
   <script defer src="./static/js/demos-config.js?v=20261009-release"></script>
@@ -173,35 +173,64 @@
     <section class="section workspace-section" id="workspace-3d">
       <div class="workspace-container">
         <div class="workspace-heading">
-          <div><p class="workspace-eyebrow">SPACE &amp; CONTEXT</p><h2>3D Surgical Workspace</h2><p class="workspace-intro">Explore the scene reconstruction and interact with the 3D workspace.</p></div>
+          <div><p class="workspace-eyebrow">SPACE &amp; CONTEXT</p><h2>Semantic Mapping for Planning and Navigation</h2><p class="workspace-intro">From handheld RGB-D scans to persistent scene memory for online agent planning and robot semantic navigation.</p></div>
         </div>
         <div id="scene-reconstruction" class="workspace-part" role="group" aria-labelledby="reconstruction-title">
-          <h3 id="reconstruction-title" class="workspace-part-title"><span class="workspace-part-number">1</span>Scene reconstruction</h3>
-          <figure class="reconstruction-figure" aria-label="Scene reconstruction workflow">
-            <div class="reconstruction-flow">
-              <div class="reconstruction-panel">
-                <h4>Real-world scene</h4>
-                <div class="reconstruction-media"><img src="./static/images/reconstruction/real-scene.png" width="1170" height="567" loading="lazy" decoding="async" draggable="false" alt="Real surgical workspace; only the person's face is pixelated."></div>
+          <h3 id="reconstruction-title" class="workspace-part-title"><span class="workspace-part-number">1</span>Offline-to-online workflow</h3>
+          <figure class="mapping-workflow" aria-labelledby="reconstruction-title" aria-describedby="mapping-workflow-caption">
+            <div class="mapping-lane-label"><span>OFFLINE</span> Build persistent scene memory</div>
+            <div class="mapping-flow mapping-flow--offline" aria-label="Offline semantic mapping">
+              <div class="mapping-step">
+                <h4>Handheld RGB-D Scan</h4>
+                <div class="mapping-media"><img src="./static/images/reconstruction/real-scene.png" width="1170" height="567" loading="lazy" decoding="async" alt="Real surgical workspace recorded with a handheld RGB-D camera."></div>
+                <div class="mapping-tags"><span>RGB</span><span>Depth</span><span>Camera poses</span></div>
+                <p>Capture the workspace from multiple viewpoints.</p>
               </div>
-              <div class="reconstruction-arrow" aria-hidden="true">→</div>
-              <div class="reconstruction-panel">
-                <h4>Point cloud</h4>
-                <div class="reconstruction-media"><img src="./static/images/reconstruction/point-cloud.png" width="1253" height="1002" loading="lazy" decoding="async" draggable="false" alt="Point cloud of the surgical workspace."></div>
+              <div class="mapping-step">
+                <h4>Object-level 3D Mapping</h4>
+                <div class="mapping-media mapping-media--cloud"><img src="./static/images/reconstruction/point-cloud.png" width="1253" height="1002" loading="lazy" decoding="async" alt="Reconstructed point cloud of the scanned surgical workspace."></div>
+                <p class="mapping-process">Object segmentation <span aria-hidden="true">→</span> 3D projection <span aria-hidden="true">→</span> Multi-view association &amp; fusion</p>
               </div>
-              <div class="reconstruction-tools" aria-label="Reconstruction with Astra and Blender">
-                <span class="reconstruction-tool">Blender</span>
-                <span class="reconstruction-tool-down" aria-hidden="true">↓</span>
-                <div class="reconstruction-agent-row"><span aria-hidden="true">→</span><span class="reconstruction-agent">Astra</span><span aria-hidden="true">→</span></div>
-              </div>
-              <div class="reconstruction-panel">
-                <h4>3D model</h4>
-                <div class="reconstruction-media"><img src="./static/images/reconstruction/model-2x.png" width="1800" height="1520" loading="lazy" decoding="async" draggable="false" alt="Reconstructed 3D surgical workspace."></div>
+              <div class="mapping-step mapping-step--memory">
+                <h4>Offline Semantic Memory</h4>
+                <div class="mapping-media mapping-media--cloud"><img src="./static/images/reconstruction/semantic-memory.png" width="1500" height="975" loading="lazy" decoding="async" alt="Existing surgical-workspace semantic map with category-colored objects and no browser controls."></div>
+                <div class="mapping-tags"><span>Object identity</span><span>3D location</span><span>Spatial context</span></div>
+                <p>Store an object-level map for later retrieval.</p>
               </div>
             </div>
-            <figcaption class="reconstruction-legend">
-              <span><svg viewBox="0 0 28 28" aria-hidden="true"><path d="m3 9 11-6 11 6-11 6Z M3 14l11 6 11-6 M3 19l11 6 11-6"/></svg>SLAM + depth</span>
-              <span><svg viewBox="0 0 28 28" aria-hidden="true"><rect x="3" y="7" width="22" height="17" rx="3"/><circle cx="14" cy="15.5" r="5"/><path d="m8 7 2-4h8l2 4"/></svg>RGB-D camera</span>
-            </figcaption>
+            <div class="mapping-transfer" aria-label="Memory retrieval: offline semantic memory to the online planning agent">
+              <svg viewBox="0 0 1000 62" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="memory-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="m0 0 10 5-10 5Z" fill="currentColor"/></marker></defs><path d="M840 0V30H160V60" marker-end="url(#memory-arrow)"/></svg>
+              <span>Memory retrieval <b aria-hidden="true">↓</b></span>
+              <div class="mapping-lane-label mapping-lane-label--online"><span>ONLINE</span> Ground instructions and execute tasks</div>
+            </div>
+            <div class="mapping-flow mapping-flow--online" aria-label="Online agent planning and robot semantic navigation">
+              <div class="mapping-step">
+                <h4>Agent Online Planning</h4>
+                <div class="mapping-request"><span>Human instruction</span><q>Please bring me gauze.</q></div>
+                <p class="mapping-input">+ Current observation</p>
+                <p>Retrieve scene memory to identify the target and generate or adjust the task plan.</p>
+                <ol class="mapping-task-plan" aria-label="Example gauze assistance plan"><li>Retrieve gauze</li><li>Navigate</li><li>Grasp</li><li>Deliver</li></ol>
+              </div>
+              <div class="mapping-step">
+                <h4>Semantic Goal Grounding</h4>
+                <div class="mapping-goal-sketch" role="img" aria-label="Schematic of a reachable approach pose beside the gauze object">
+                  <svg viewBox="0 0 300 120" aria-hidden="true"><rect x="207" y="20" width="74" height="56" rx="7" fill="#e7edf3" stroke="#becbda"/><rect x="230" y="36" width="27" height="23" rx="4" fill="#e2b695" stroke="#b88864"/><path d="M34 96H145" fill="none" stroke="#609b91" stroke-width="2" stroke-dasharray="5 5"/><circle cx="160" cy="96" r="14" fill="#e3f3ee" stroke="#609b91" stroke-width="2"/><path d="m154 101 6-13 6 13-6-3Z" fill="#609b91"/><circle cx="34" cy="96" r="5" fill="#98aaba"/></svg>
+                  <span class="mapping-goal-object">Gauze</span><span class="mapping-goal-pose">Reachable approach pose</span>
+                </div>
+                <ol class="mapping-goal-steps"><li>Retrieve the object's map location</li><li>Determine a reachable approach pose</li><li>Pass the goal to the navigation module</li></ol>
+              </div>
+              <div class="mapping-step">
+                <h4>Robot Semantic Navigation</h4>
+                <ol class="mapping-navigation"><li><span>01</span>Navigation goal</li><li><span>02</span>Path planning</li><li><span>03</span>Robot execution</li></ol>
+                <p>Navigate to the approach pose, then continue with grasping and delivery skills.</p>
+                <div class="mapping-result">Execution state <span aria-hidden="true">→</span> Agent</div>
+              </div>
+            </div>
+            <div class="mapping-feedback" aria-label="Execution feedback: robot execution returns status to the online planning agent">
+              <svg viewBox="0 0 1000 50" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="feedback-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="m0 0 10 5-10 5Z" fill="currentColor"/></marker></defs><path d="M840 0V28H160V2" marker-end="url(#feedback-arrow)"/></svg>
+              <span>Execution feedback <b aria-hidden="true">→ Agent online planning</b></span>
+            </div>
+            <figcaption id="mapping-workflow-caption">Built offline, the semantic map provides persistent scene memory. During execution, the agent retrieves object and spatial context to ground instructions and plan tasks; navigation uses a reachable approach pose, and execution feedback informs subsequent planning.</figcaption>
           </figure>
         </div>
         <div id="workspace-preview" class="workspace-part" role="group" aria-labelledby="workspace-preview-title">
