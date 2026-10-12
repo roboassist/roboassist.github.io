@@ -166,17 +166,11 @@ async function startScene() {
     const leftFootBox = new T.Box3().setFromObject(links.get('left_ankle_roll_link'));
     const groundHeight = .79 - leftFootBox.min.z + .004;
     rig.position.z = groundHeight;
-    // The camera/light fitted to the real robot and its distinctive cyan face rim.
+    // Use the official head geometry without an added outline: a generated tube
+    // does not follow the visor accurately from every camera angle.
     const head = links.get('head_link');
     const headBounds = geometries.get('meshes/head_link.STL'); headBounds.computeBoundingBox();
     const hb = headBounds.boundingBox;
-    const rimPoints = [
-      [hb.max.x-.012,-.069,hb.max.z-.075],[hb.max.x+.002,-.072,hb.max.z-.125],
-      [hb.max.x+.009,-.050,hb.max.z-.195],[hb.max.x+.012,0,hb.max.z-.215],
-      [hb.max.x+.009,.050,hb.max.z-.195],[hb.max.x+.002,.072,hb.max.z-.125],[hb.max.x-.012,.069,hb.max.z-.075]
-    ].map(p=>new T.Vector3(...p));
-    const rim = new T.Mesh(new T.TubeGeometry(new T.CatmullRomCurve3(rimPoints),36,.0027,6,false),new T.MeshStandardMaterial({color:'#52ccd6',emissive:'#1996ad',emissiveIntensity:.6}));
-    head.add(rim);
     const rightHand = links.get('R_hand_base_link');
     const graspPoint = new T.Object3D(); graspPoint.position.set(0,-.115,.018); rightHand.add(graspPoint);
     const armNames = ['right_shoulder_pitch_joint','right_shoulder_roll_joint','right_shoulder_yaw_joint','right_elbow_joint','right_wrist_roll_joint','right_wrist_pitch_joint','right_wrist_yaw_joint'];
