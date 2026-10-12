@@ -11,12 +11,14 @@ The site is a framework-free GitHub Pages project built with HTML, CSS, and Java
 - Click or tap a video picture to play/pause; drag the shared timeline to seek.
 - Playback speeds from 0.5× to 3×, picture-in-picture, and split view.
 - Responsive desktop and mobile layouts.
+- A full project video below Robot Demonstrations, linked by the hero's Video
+  button, with native playback, seeking, volume, and fullscreen controls.
 - An articulated Unitree G1 gauze-delivery scene, modeled after the experimental
   workspace, with orbit/zoom controls, a real-scene reference, pause, and replay.
   Robot geometry is from Unitree's official model; motion and room dimensions are
   illustrative. See `static/models/g1/README.md` for provenance and licenses.
 
-Publication videos are H.264 MP4 web copies with fast-start metadata, capped bitrate, and **no audio tracks**. Original research recordings are not included in this publication snapshot. Browser playback is also fixed to mute. The web compression does not change clip timing or scientific text. Auxiliary time offsets are preview settings, not independently calibrated camera alignment.
+Demonstration gallery videos are H.264 MP4 web copies with fast-start metadata, capped bitrate, and **no audio tracks**; gallery playback is fixed to mute. The separate project video (`static/videos/roboassist-video.mp4`) retains the supplied video's original H.264 picture and AAC audio without re-encoding, with fast-start metadata for browser playback. It plays on user request with sound and native controls. Original research recordings are not included in this publication snapshot. The web compression does not change clip timing or scientific text. Auxiliary time offsets are preview settings, not independently calibrated camera alignment.
 
 ## Local preview
 
@@ -38,4 +40,4 @@ Open `http://127.0.0.1:8000/`. Keep the server terminal open. The included serve
 
 GitHub Pages deploys the repository's `main` branch from its root directory. No package manager or build framework is required.
 
-Paper and code links, complete BibTeX metadata, and the full supplementary-video link remain pending. Author information is not added during review.
+Paper and code links and complete BibTeX metadata remain pending. Author information is not added during review.

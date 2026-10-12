@@ -4,3 +4,7 @@ static/maps/room03/data/*.ply binary
 static/maps/room03/data/*.json text eol=lf
 static/maps/room03/data/*.csv text eol=lf
 static/maps/room03/data/SHA256SUMS text eol=lf
+static/models/clean-room/*.f32 binary
+static/models/clean-room/*.rgb8 binary
+static/models/clean-room/*.u8 binary
+static/models/clean-room/*.glb binary

@@ -1,0 +1,1514 @@
+{
+  "version": 2,
+  "geometry_source": "model-derived presentation cloud, NOT a measured point cloud",
+  "source": "room.glb",
+  "source_sha256": "1edbada071e436e658271d498e88897e3264adc7ab90e7a50baa6feeb23c5279",
+  "display_points": 359637,
+  "files": {
+    "positions": "presentation-positions.f32",
+    "colors": "presentation-colors.rgb8",
+    "groups": "presentation-groups.u8",
+    "shading": "presentation-shading.u8"
+  },
+  "seed": 731,
+  "coordinate_system": "Same world coordinates as the approved GLB, Y-up, meters",
+  "sampling": "Deterministic area-weighted triangle surface sampling, per-mesh voxel consolidation; adaptive spacing 9.53-33.37 mm (nominal surface density +10%); gentle 81-97% spatial retention on large surfaces, full retention on small equipment; outward offset 0.8 mm for depth stability",
+  "notes": [
+    "Whole floor is sampled, including areas absent from the scan.",
+    "No synthetic point is represented as a measured observation.",
+    "Display colors are art-directed and normal-shaded, not camera RGB.",
+    "Decorative floor specks and tile-joint curves are omitted from point representation only.",
+    "All source geometry and original scan files are unchanged."
+  ],
+  "objects": [
+    {
+      "name": "Aluminum_box_body",
+      "points": 879,
+      "area_m2": 0.05725560933978363,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Aluminum_box_lid",
+      "points": 624,
+      "area_m2": 0.04023094255517483,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Aluminum_box_lid_rim",
+      "points": 363,
+      "area_m2": 0.04229964439392655,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Black_dual_rod_fixture",
+      "points": 3587,
+      "area_m2": 0.2358408398968498,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Bottle_table_sample_cup_blue_lid",
+      "points": 106,
+      "area_m2": 0.006764131793853736,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Bottle_table_sample_cup_body",
+      "points": 213,
+      "area_m2": 0.012153992803677172,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Bottle_teal_label_band",
+      "points": 72,
+      "area_m2": 0.005016456371507901,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Bottle_teal_label_band001",
+      "points": 77,
+      "area_m2": 0.005016456371507901,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Bottle_teal_label_band002",
+      "points": 77,
+      "area_m2": 0.005016456371507901,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Bottle_worktable_Cover",
+      "points": 3707,
+      "area_m2": 2.8051089879244606,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Bottle_worktable_Cover_fold",
+      "points": 19,
+      "area_m2": 0.004585963276073689,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Bottle_worktable_Cover_fold001",
+      "points": 28,
+      "area_m2": 0.004585964310001294,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Bottle_worktable_Drape_Front",
+      "points": 877,
+      "area_m2": 0.5244314411944947,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Bottle_worktable_Drape_Left",
+      "points": 546,
+      "area_m2": 0.35113170495692925,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Bottle_worktable_Drape_Right",
+      "points": 606,
+      "area_m2": 0.3511317059504676,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Bottle_worktable_Foot",
+      "points": 121,
+      "area_m2": 0.007222744873832125,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Bottle_worktable_Foot001",
+      "points": 116,
+      "area_m2": 0.007222744873832125,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Bottle_worktable_Foot002",
+      "points": 112,
+      "area_m2": 0.007222744873832125,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Bottle_worktable_Foot003",
+      "points": 119,
+      "area_m2": 0.007222744873832125,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Bottle_worktable_Frame",
+      "points": 2900,
+      "area_m2": 0.19751181963817416,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Bottle_worktable_Frame001",
+      "points": 2873,
+      "area_m2": 0.19751181963817416,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Bottle_worktable_Frame002",
+      "points": 2451,
+      "area_m2": 0.16393212151285028,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Bottle_worktable_Frame003",
+      "points": 2385,
+      "area_m2": 0.16393212151285028,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Bottle_worktable_Leg",
+      "points": 1530,
+      "area_m2": 0.10021023040268826,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Bottle_worktable_Leg001",
+      "points": 1487,
+      "area_m2": 0.10021023040268826,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Bottle_worktable_Leg002",
+      "points": 1517,
+      "area_m2": 0.10021023040268826,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Bottle_worktable_Leg003",
+      "points": 1360,
+      "area_m2": 0.10021023040268826,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Bottle_worktable_Top",
+      "points": 6545,
+      "area_m2": 2.9039820715703484,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Camera_mount_plate",
+      "points": 627,
+      "area_m2": 0.04088204011020091,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Central_port_small_opening",
+      "points": 6,
+      "area_m2": 0.000265269194758947,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Central_port_small_opening001",
+      "points": 5,
+      "area_m2": 0.000265269194758947,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Central_port_small_opening002",
+      "points": 5,
+      "area_m2": 0.000265269194758947,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Central_port_small_opening003",
+      "points": 5,
+      "area_m2": 0.000265269194758947,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Continuous_floor",
+      "points": 24036,
+      "area_m2": 22.411200903701783,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Device_central_black_port",
+      "points": 164,
+      "area_m2": 0.0093575590530699,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Device_central_cover",
+      "points": 84,
+      "area_m2": 0.008462914128562888,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Device_label",
+      "points": 75,
+      "area_m2": 0.007893540684592306,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Device_label_print",
+      "points": 10,
+      "area_m2": 0.0005920000199154015,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Device_label_print001",
+      "points": 11,
+      "area_m2": 0.0005920000199154015,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Device_label_print002",
+      "points": 14,
+      "area_m2": 0.0005920000199154015,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Device_port_center",
+      "points": 41,
+      "area_m2": 0.003248011404554962,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Device_port_center001",
+      "points": 41,
+      "area_m2": 0.0032480114947182775,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Device_port_center002",
+      "points": 44,
+      "area_m2": 0.003248010932988266,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Device_port_center003",
+      "points": 40,
+      "area_m2": 0.0032480114947182775,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Device_port_center004",
+      "points": 38,
+      "area_m2": 0.0032480114045549606,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Device_port_center005",
+      "points": 43,
+      "area_m2": 0.0032480115444747755,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Device_port_center006",
+      "points": 36,
+      "area_m2": 0.003248011207139505,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Device_port_center007",
+      "points": 41,
+      "area_m2": 0.0032480115444747763,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Device_port_rim",
+      "points": 74,
+      "area_m2": 0.005263627017370658,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Device_port_rim001",
+      "points": 77,
+      "area_m2": 0.005263627130507234,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Device_port_rim002",
+      "points": 90,
+      "area_m2": 0.00526362639015609,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Device_port_rim003",
+      "points": 78,
+      "area_m2": 0.00526362713050723,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Device_port_rim004",
+      "points": 85,
+      "area_m2": 0.0052636270173706525,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Device_port_rim005",
+      "points": 79,
+      "area_m2": 0.005263627247837873,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Device_port_rim006",
+      "points": 85,
+      "area_m2": 0.005263626749161743,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Device_port_rim007",
+      "points": 84,
+      "area_m2": 0.0052636272478378794,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Folded_gauze_piece",
+      "points": 798,
+      "area_m2": 0.05465671861904864,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Front_white_partition",
+      "points": 19614,
+      "area_m2": 19.968265744830127,
+      "wall_bucket": 4
+    },
+    {
+      "name": "Gauze_worktable_Cover",
+      "points": 4980,
+      "area_m2": 3.7966592463071462,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Gauze_worktable_Cover_fold",
+      "points": 19,
+      "area_m2": 0.0053214058037484,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Gauze_worktable_Cover_fold001",
+      "points": 22,
+      "area_m2": 0.005321438507457874,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Gauze_worktable_Drape_Front",
+      "points": 1637,
+      "area_m2": 1.0106873102890603,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Gauze_worktable_Drape_Left",
+      "points": 1126,
+      "area_m2": 0.6624136905790422,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Gauze_worktable_Drape_Right",
+      "points": 1101,
+      "area_m2": 0.6624136959523221,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Gauze_worktable_Foot",
+      "points": 121,
+      "area_m2": 0.007222744873832125,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Gauze_worktable_Foot001",
+      "points": 112,
+      "area_m2": 0.007222744873832125,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Gauze_worktable_Foot002",
+      "points": 119,
+      "area_m2": 0.007222744873832125,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Gauze_worktable_Foot003",
+      "points": 112,
+      "area_m2": 0.007222744873832125,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Gauze_worktable_Frame",
+      "points": 3371,
+      "area_m2": 0.23109151776349807,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Gauze_worktable_Frame001",
+      "points": 3436,
+      "area_m2": 0.23109151776349807,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Gauze_worktable_Frame002",
+      "points": 2806,
+      "area_m2": 0.1898800783349217,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Gauze_worktable_Frame003",
+      "points": 2817,
+      "area_m2": 0.1898800783349217,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Gauze_worktable_Leg",
+      "points": 1549,
+      "area_m2": 0.10021023040268826,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Gauze_worktable_Leg001",
+      "points": 1522,
+      "area_m2": 0.10021023040268826,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Gauze_worktable_Leg002",
+      "points": 1507,
+      "area_m2": 0.10021023040268826,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Gauze_worktable_Leg003",
+      "points": 1504,
+      "area_m2": 0.10021023040268826,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Gauze_worktable_Top",
+      "points": 9003,
+      "area_m2": 3.9122427077663997,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Gauze_woven_surface",
+      "points": 310,
+      "area_m2": 0.016100492039646683,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Grey_window_curtain",
+      "points": 13712,
+      "area_m2": 13.230881409549179,
+      "wall_bucket": 1
+    },
+    {
+      "name": "Grey_window_curtain001",
+      "points": 8847,
+      "area_m2": 8.61711078861727,
+      "wall_bucket": 1
+    },
+    {
+      "name": "Holder_pin",
+      "points": 27,
+      "area_m2": 0.0015773951918088681,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Holder_pin001",
+      "points": 29,
+      "area_m2": 0.0015773951918088681,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Holder_pin002",
+      "points": 27,
+      "area_m2": 0.0015773951918088681,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Holder_pin003",
+      "points": 28,
+      "area_m2": 0.0015773951918088681,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Holder_pin004",
+      "points": 26,
+      "area_m2": 0.0015773951918088681,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Holder_pin005",
+      "points": 30,
+      "area_m2": 0.0015773951918088681,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Instrument_handle",
+      "points": 49,
+      "area_m2": 0.003262993964071974,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Instrument_handle001",
+      "points": 45,
+      "area_m2": 0.0032629941338209022,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Instrument_handle002",
+      "points": 58,
+      "area_m2": 0.0032629969914476473,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Instrument_handle003",
+      "points": 50,
+      "area_m2": 0.0032629971727742633,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Instrument_shaft",
+      "points": 62,
+      "area_m2": 0.004012441257780456,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Instrument_shaft001",
+      "points": 65,
+      "area_m2": 0.0040124400513467514,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Instrument_shaft002",
+      "points": 62,
+      "area_m2": 0.004012441257780434,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Instrument_shaft003",
+      "points": 67,
+      "area_m2": 0.004012441160461132,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Instrument_tip",
+      "points": 10,
+      "area_m2": 0.0007191196934890243,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Instrument_tip001",
+      "points": 12,
+      "area_m2": 0.0007191196934890243,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Left_ring_light_diffuser",
+      "points": 902,
+      "area_m2": 0.05341606242742721,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Left_ring_light_foot",
+      "points": 228,
+      "area_m2": 0.014269698314626884,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Left_ring_light_foot001",
+      "points": 227,
+      "area_m2": 0.01426969625099098,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Left_ring_light_foot002",
+      "points": 227,
+      "area_m2": 0.01426969653698682,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Left_ring_light_inner_bracket",
+      "points": 52,
+      "area_m2": 0.0035669640749644484,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Left_ring_light_outer_ring",
+      "points": 1475,
+      "area_m2": 0.085465701658245,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Left_ring_light_phone_holder",
+      "points": 151,
+      "area_m2": 0.009122462500815115,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Left_ring_light_pole",
+      "points": 1293,
+      "area_m2": 0.08782205630651979,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Left_wall",
+      "points": 39610,
+      "area_m2": 26.61510988213341,
+      "wall_bucket": 1
+    },
+    {
+      "name": "Long_workbench_A_Cover",
+      "points": 5110,
+      "area_m2": 3.785470906566349,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_A_Cover_fold",
+      "points": 29,
+      "area_m2": 0.006316196540486495,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_A_Cover_fold001",
+      "points": 31,
+      "area_m2": 0.0063164552761097266,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_A_Drape_Front",
+      "points": 1838,
+      "area_m2": 1.07731252302253,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_A_Drape_Left",
+      "points": 1637,
+      "area_m2": 1.0025019363649925,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_A_Drape_Right",
+      "points": 1751,
+      "area_m2": 1.0025019417101166,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_A_Foot",
+      "points": 116,
+      "area_m2": 0.007222744873832125,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_A_Foot001",
+      "points": 116,
+      "area_m2": 0.007222744873832125,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_A_Foot002",
+      "points": 105,
+      "area_m2": 0.007222744873832125,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_A_Foot003",
+      "points": 111,
+      "area_m2": 0.007222744873832125,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_A_Frame",
+      "points": 2865,
+      "area_m2": 0.1944591231168732,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_A_Frame001",
+      "points": 2839,
+      "area_m2": 0.1944591231168732,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_A_Frame002",
+      "points": 3299,
+      "area_m2": 0.2249861247208961,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_A_Frame003",
+      "points": 3315,
+      "area_m2": 0.2249861247208961,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_A_Leg",
+      "points": 1558,
+      "area_m2": 0.10021023040268826,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_A_Leg001",
+      "points": 1503,
+      "area_m2": 0.10021023040268826,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_A_Leg002",
+      "points": 1512,
+      "area_m2": 0.10021023040268826,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_A_Leg003",
+      "points": 1517,
+      "area_m2": 0.10021023040268826,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_A_Top",
+      "points": 9207,
+      "area_m2": 3.900625787216632,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_B_Cover",
+      "points": 4970,
+      "area_m2": 3.785470906566349,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_B_Cover_fold",
+      "points": 27,
+      "area_m2": 0.006316194995643606,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_B_Cover_fold001",
+      "points": 30,
+      "area_m2": 0.006316453731306499,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_B_Drape_Front",
+      "points": 1142,
+      "area_m2": 0.6949945282079352,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_B_Drape_Left",
+      "points": 1087,
+      "area_m2": 0.6485553925553823,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_B_Drape_Right",
+      "points": 1102,
+      "area_m2": 0.6485553968715007,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_B_Foot",
+      "points": 110,
+      "area_m2": 0.007222744873832125,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_B_Foot001",
+      "points": 113,
+      "area_m2": 0.007222744873832125,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_B_Foot002",
+      "points": 119,
+      "area_m2": 0.007222744873832125,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_B_Foot003",
+      "points": 119,
+      "area_m2": 0.007222744873832125,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_B_Frame",
+      "points": 2850,
+      "area_m2": 0.1944591231168732,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_B_Frame001",
+      "points": 2846,
+      "area_m2": 0.1944591231168732,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_B_Frame002",
+      "points": 3341,
+      "area_m2": 0.2249861247208961,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_B_Frame003",
+      "points": 3257,
+      "area_m2": 0.2249861247208961,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_B_Leg",
+      "points": 1449,
+      "area_m2": 0.10021023040268826,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_B_Leg001",
+      "points": 1486,
+      "area_m2": 0.10021023040268826,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_B_Leg002",
+      "points": 1353,
+      "area_m2": 0.10021023040268826,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_B_Leg003",
+      "points": 1387,
+      "area_m2": 0.10021023040268826,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Long_workbench_B_Top",
+      "points": 9092,
+      "area_m2": 3.900625787216632,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Partition_floor_pad",
+      "points": 3992,
+      "area_m2": 0.2690930341525768,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Rear_white_partition",
+      "points": 21803,
+      "area_m2": 21.564018868074534,
+      "wall_bucket": 2
+    },
+    {
+      "name": "Right_ring_light_diffuser",
+      "points": 925,
+      "area_m2": 0.05341606242742732,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Right_ring_light_foot",
+      "points": 231,
+      "area_m2": 0.014269701211505037,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Right_ring_light_foot001",
+      "points": 232,
+      "area_m2": 0.014269695180593338,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Right_ring_light_foot002",
+      "points": 220,
+      "area_m2": 0.014269696930417138,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Right_ring_light_inner_bracket",
+      "points": 55,
+      "area_m2": 0.003566963132739112,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Right_ring_light_outer_ring",
+      "points": 1449,
+      "area_m2": 0.0854657016582452,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Right_ring_light_phone_holder",
+      "points": 143,
+      "area_m2": 0.009122462500815115,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Right_ring_light_pole",
+      "points": 1519,
+      "area_m2": 0.08782205630651979,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Right_white_partition",
+      "points": 27691,
+      "area_m2": 27.322756166004897,
+      "wall_bucket": 3
+    },
+    {
+      "name": "Secondary_black_base",
+      "points": 1899,
+      "area_m2": 0.12073267173761623,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Slim_rectangular_table_item",
+      "points": 758,
+      "area_m2": 0.051989148327155746,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Syringe_graduation",
+      "points": 1,
+      "area_m2": 0.00008800000684615236,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Syringe_graduation001",
+      "points": 1,
+      "area_m2": 0.00004300000303704296,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Syringe_graduation002",
+      "points": 1,
+      "area_m2": 0.00008800000684615236,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Syringe_graduation003",
+      "points": 2,
+      "area_m2": 0.00004300000303704296,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Syringe_graduation004",
+      "points": 1,
+      "area_m2": 0.00008800000684615236,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Syringe_graduation005",
+      "points": 1,
+      "area_m2": 0.00004300000303704296,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Syringe_graduation006",
+      "points": 3,
+      "area_m2": 0.00008800000684615236,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Syringe_graduation007",
+      "points": 1,
+      "area_m2": 0.00004300000303704296,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Syringe_graduation008",
+      "points": 1,
+      "area_m2": 0.00008800000684615236,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Syringe_graduation009",
+      "points": 2,
+      "area_m2": 0.00004300000303704296,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Syringe_graduation010",
+      "points": 3,
+      "area_m2": 0.00008800000684615236,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tall_syringe_base",
+      "points": 173,
+      "area_m2": 0.01049539748219887,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tall_syringe_body",
+      "points": 689,
+      "area_m2": 0.04497109480678666,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tall_syringe_top",
+      "points": 112,
+      "area_m2": 0.00755067900789196,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tool_holder_0",
+      "points": 714,
+      "area_m2": 0.047601718305710125,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tool_holder_1",
+      "points": 721,
+      "area_m2": 0.047601718305710125,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_inner",
+      "points": 2333,
+      "area_m2": 0.1566092028456595,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_raised_rim",
+      "points": 442,
+      "area_m2": 0.028912112918970445,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_raised_rim001",
+      "points": 449,
+      "area_m2": 0.028912112918970445,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_raised_rim002",
+      "points": 328,
+      "area_m2": 0.020896866176869384,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_raised_rim003",
+      "points": 320,
+      "area_m2": 0.020896866176869384,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_0",
+      "points": 13,
+      "area_m2": 0.0009547419980280838,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_1",
+      "points": 11,
+      "area_m2": 0.0009547423086426238,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_2",
+      "points": 21,
+      "area_m2": 0.0009547417901331046,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_3",
+      "points": 16,
+      "area_m2": 0.0009547417909799155,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_4",
+      "points": 11,
+      "area_m2": 0.0009547418038162386,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_5",
+      "points": 16,
+      "area_m2": 0.0009547418016887586,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_6",
+      "points": 16,
+      "area_m2": 0.0009547420169307466,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_7",
+      "points": 10,
+      "area_m2": 0.0009547417625065601,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_8",
+      "points": 13,
+      "area_m2": 0.0009547418905034746,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_9",
+      "points": 15,
+      "area_m2": 0.0009547418029947954,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_10",
+      "points": 10,
+      "area_m2": 0.0009547419078220988,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_11",
+      "points": 13,
+      "area_m2": 0.000954741695896832,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_12",
+      "points": 19,
+      "area_m2": 0.0009547418682092952,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_13",
+      "points": 14,
+      "area_m2": 0.000954741787580946,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_14",
+      "points": 16,
+      "area_m2": 0.0009547417992077534,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_15",
+      "points": 16,
+      "area_m2": 0.0009547419269920578,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_16",
+      "points": 16,
+      "area_m2": 0.000954741801002748,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_17",
+      "points": 11,
+      "area_m2": 0.000954741735774655,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_18",
+      "points": 16,
+      "area_m2": 0.0009547419729231425,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_19",
+      "points": 12,
+      "area_m2": 0.0009547417989515601,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_20",
+      "points": 17,
+      "area_m2": 0.0009547418625093264,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_21",
+      "points": 16,
+      "area_m2": 0.0009547418083826008,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_22",
+      "points": 17,
+      "area_m2": 0.0009547417971655249,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_23",
+      "points": 18,
+      "area_m2": 0.0009547419018727336,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_24",
+      "points": 18,
+      "area_m2": 0.0009547417708723367,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_25",
+      "points": 11,
+      "area_m2": 0.0009547418016679152,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_26",
+      "points": 18,
+      "area_m2": 0.0009547418367545175,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_27",
+      "points": 11,
+      "area_m2": 0.0009547417929633858,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_28",
+      "points": 20,
+      "area_m2": 0.0009547419441181951,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_29",
+      "points": 18,
+      "area_m2": 0.0009547417945174302,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_30",
+      "points": 10,
+      "area_m2": 0.0009547418940593945,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_31",
+      "points": 20,
+      "area_m2": 0.0009547417468058165,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_32",
+      "points": 17,
+      "area_m2": 0.000954741883845307,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_33",
+      "points": 13,
+      "area_m2": 0.0009547418483786732,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_34",
+      "points": 15,
+      "area_m2": 0.000954742023883699,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_35",
+      "points": 12,
+      "area_m2": 0.0009547417607097025,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_36",
+      "points": 10,
+      "area_m2": 0.0009547419177061225,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_37",
+      "points": 16,
+      "area_m2": 0.0009547418623100698,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_38",
+      "points": 18,
+      "area_m2": 0.0009547419289817052,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_39",
+      "points": 9,
+      "area_m2": 0.0009547417717424061,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_40",
+      "points": 18,
+      "area_m2": 0.0009547417901404088,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_41",
+      "points": 18,
+      "area_m2": 0.0009547417735335726,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_42",
+      "points": 14,
+      "area_m2": 0.0009547419725349752,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tray_training_piece_43",
+      "points": 9,
+      "area_m2": 0.0009547418288334509,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tripod_brace",
+      "points": 106,
+      "area_m2": 0.006437445371291468,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tripod_brace001",
+      "points": 96,
+      "area_m2": 0.00643744848413841,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tripod_brace002",
+      "points": 99,
+      "area_m2": 0.006437447366304502,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tripod_center_column",
+      "points": 1483,
+      "area_m2": 0.09308145590644865,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tripod_foot",
+      "points": 65,
+      "area_m2": 0.004324759036660216,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tripod_foot001",
+      "points": 69,
+      "area_m2": 0.004324759036660216,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tripod_foot002",
+      "points": 65,
+      "area_m2": 0.004324759036660216,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tripod_lower_leg",
+      "points": 564,
+      "area_m2": 0.03571771337112788,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tripod_lower_leg001",
+      "points": 561,
+      "area_m2": 0.03571773280855496,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tripod_lower_leg002",
+      "points": 554,
+      "area_m2": 0.03571770650199444,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tripod_pan_handle",
+      "points": 295,
+      "area_m2": 0.018932743795694717,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tripod_pan_head",
+      "points": 846,
+      "area_m2": 0.056022524259391956,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tripod_upper_leg",
+      "points": 853,
+      "area_m2": 0.05318404931377546,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tripod_upper_leg001",
+      "points": 838,
+      "area_m2": 0.05318404916616671,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Tripod_upper_leg002",
+      "points": 855,
+      "area_m2": 0.053184046019419666,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Wall_power_outlet",
+      "points": 565,
+      "area_m2": 0.035829676303366,
+      "wall_bucket": 0
+    },
+    {
+      "name": "White_bottle_body",
+      "points": 366,
+      "area_m2": 0.023305876198760313,
+      "wall_bucket": 0
+    },
+    {
+      "name": "White_bottle_neck",
+      "points": 49,
+      "area_m2": 0.002828026035092653,
+      "wall_bucket": 0
+    },
+    {
+      "name": "White_bottle_nozzle",
+      "points": 10,
+      "area_m2": 0.0008387494705337047,
+      "wall_bucket": 0
+    },
+    {
+      "name": "White_device_base",
+      "points": 10486,
+      "area_m2": 0.7022828147179832,
+      "wall_bucket": 0
+    },
+    {
+      "name": "White_domed_device_shell",
+      "points": 8797,
+      "area_m2": 0.5368987645147917,
+      "wall_bucket": 0
+    },
+    {
+      "name": "White_fixture_base",
+      "points": 2013,
+      "area_m2": 0.13892160336432594,
+      "wall_bucket": 0
+    },
+    {
+      "name": "White_small_support",
+      "points": 638,
+      "area_m2": 0.040716830184854655,
+      "wall_bucket": 0
+    },
+    {
+      "name": "White_vertical_fixture_rod",
+      "points": 297,
+      "area_m2": 0.019083645648982246,
+      "wall_bucket": 0
+    },
+    {
+      "name": "White_vertical_fixture_rod001",
+      "points": 283,
+      "area_m2": 0.019083645648982246,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Workbench_sample_cup_blue_lid",
+      "points": 113,
+      "area_m2": 0.006764131793853736,
+      "wall_bucket": 0
+    },
+    {
+      "name": "Workbench_sample_cup_body",
+      "points": 197,
+      "area_m2": 0.012153992803677172,
+      "wall_bucket": 0
+    }
+  ],
+  "nominal_density_multiplier": 1.1
+}
