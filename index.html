@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="./static/css/demonstrations.css?v=20261009-loading-spinner">
   <link rel="stylesheet" href="./static/css/semantic-map.css?v=20261010">
   <link rel="stylesheet" href="./static/css/workspace-stage.css?v=20261011">
-  <link rel="stylesheet" href="./static/css/reconstruction-figure.css?v=20261012-memory-workflow">
+  <link rel="stylesheet" href="./static/css/reconstruction-figure.css?v=20261012-aligned-goal">
   <link rel="stylesheet" href="./static/css/task-scene.css?v=20261010-dialogue">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23586f9c'/%3E%3Cpath d='M17 17h16c9 0 15 5 15 13 0 6-3 10-8 12l9 12H37l-7-10h-2v10H17V17zm11 9v10h5c3 0 5-2 5-5s-2-5-5-5h-5z' fill='white'/%3E%3C/svg%3E">
   <script defer src="./static/js/demos-config.js?v=20261009-release"></script>
@@ -213,9 +213,21 @@
               </div>
               <div class="mapping-step">
                 <h4>Semantic Goal Grounding</h4>
-                <div class="mapping-goal-sketch" role="img" aria-label="Schematic of a reachable approach pose beside the gauze object">
-                  <svg viewBox="0 0 300 120" aria-hidden="true"><rect x="207" y="20" width="74" height="56" rx="7" fill="#e7edf3" stroke="#becbda"/><rect x="230" y="36" width="27" height="23" rx="4" fill="#e2b695" stroke="#b88864"/><path d="M34 96H145" fill="none" stroke="#609b91" stroke-width="2" stroke-dasharray="5 5"/><circle cx="160" cy="96" r="14" fill="#e3f3ee" stroke="#609b91" stroke-width="2"/><path d="m154 101 6-13 6 13-6-3Z" fill="#609b91"/><circle cx="34" cy="96" r="5" fill="#98aaba"/></svg>
-                  <span class="mapping-goal-object">Gauze</span><span class="mapping-goal-pose">Reachable approach pose</span>
+                <div class="mapping-goal-sketch" role="img" aria-label="Schematic: the robot path ends at a reachable approach pose outside the table, aligned with and facing the gauze">
+                  <svg viewBox="0 0 300 150" aria-hidden="true">
+                    <rect x="165" y="20" width="90" height="60" rx="7" fill="#e7edf3" stroke="#becbda"/>
+                    <rect x="198" y="38" width="24" height="24" rx="4" fill="#e2b695" stroke="#b88864"/>
+                    <text x="229" y="35" fill="#9b714e" font-size="11">Gauze</text>
+                    <path d="M210 63V98" fill="none" stroke="#b88864" stroke-width="1.5" stroke-dasharray="3 3"/>
+                    <text x="221" y="93" fill="#9b714e" font-size="9">Aligned</text>
+                    <path d="M34 112H196" fill="none" stroke="#609b91" stroke-width="2" stroke-dasharray="5 5"/>
+                    <circle cx="210" cy="112" r="14" fill="#e3f3ee" stroke="#609b91" stroke-width="2"/>
+                    <path d="m204 117 6-13 6 13-6-3Z" fill="#609b91"/>
+                    <circle cx="34" cy="112" r="5" fill="#98aaba"/>
+                    <text x="34" y="99" text-anchor="middle" fill="#788da2" font-size="10">Robot</text>
+                    <text x="105" y="135" text-anchor="middle" fill="#408474" font-size="10">Navigation path</text>
+                  </svg>
+                  <span class="mapping-goal-pose">Reachable approach pose · facing the gauze</span>
                 </div>
                 <ol class="mapping-goal-steps"><li>Retrieve the object's map location</li><li>Determine a reachable approach pose</li><li>Pass the goal to the navigation module</li></ol>
               </div>
