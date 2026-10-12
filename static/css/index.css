@@ -658,8 +658,14 @@ a {
   font-size: 0.95rem;
   line-height: 1.55;
   padding: 0.8rem;
-  resize: vertical;
+  cursor: default;
+  resize: none;
   width: 100%;
+}
+
+.task-console textarea[readonly] {
+  background: #f4f6fb;
+  border-color: #cfd7e6;
 }
 
 .task-console textarea:focus-visible {

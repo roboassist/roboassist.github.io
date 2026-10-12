@@ -343,8 +343,6 @@ async function startScene() {
       }
     });
     send.addEventListener('click',()=>{
-      if(!input.value.trim()){status.textContent='Enter the gauze request first.';input.focus();return;}
-      if(!/gauze|纱布/i.test(input.value)){status.textContent='This demonstration supports “Nurse, please bring me gauze.”';input.focus();return;}
       detachGauze();time=0;currentState='';paused=false;isRunning=true;
       send.disabled=true;send.querySelector('span').textContent='Running';input.disabled=true;
       pauseButton.hidden=reduceMotion.matches;pauseButton.textContent='Pause';

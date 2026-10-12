@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,500,700%7CNoto+Sans:400,500,600,700%7CSource+Serif+4:600&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/index.css?v=20261010-g1">
+  <link rel="stylesheet" href="./static/css/index.css?v=20261012-fixed-instruction">
   <link rel="stylesheet" href="./static/css/demonstrations.css?v=20261009-loading-spinner">
   <link rel="stylesheet" href="./static/css/semantic-map.css?v=20261010">
   <link rel="stylesheet" href="./static/css/task-scene.css?v=20261010-dialogue">
@@ -20,7 +20,7 @@
   <script defer src="./static/js/demos-config.js?v=20261009-release"></script>
   <script defer src="./static/js/demonstrations.js?v=20261009-loading-spinner"></script>
   <script defer src="./static/js/index.js?v=20261010-g1"></script>
-  <script type="module" src="./static/js/task-scene.js?v=20261011-surgeon"></script>
+  <script type="module" src="./static/js/task-scene.js?v=20261012-fixed-instruction"></script>
   <script defer src="./static/js/semantic-map-section.js?v=20261010"></script>
 </head>
 <body>
@@ -197,7 +197,7 @@
 
             <div class="task-console__body">
               <label for="task-instruction">Instruction</label>
-              <textarea id="task-instruction" rows="3">Nurse, please bring me gauze.</textarea>
+              <textarea id="task-instruction" rows="2" readonly aria-readonly="true" spellcheck="false">Nurse, give the gauze.</textarea>
 
               <ol class="task-rollout" aria-label="Illustrative task rollout">
                 <li data-task-step="understand"><span>1</span>Receive the request</li>
