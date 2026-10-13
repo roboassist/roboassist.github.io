@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="./static/css/workspace-stage.css?v=20261011">
   <link rel="stylesheet" href="./static/css/reconstruction-figure.css?v=20261012-aligned-goal">
   <link rel="stylesheet" href="./static/css/task-scene.css?v=20261010-dialogue">
+  <link rel="stylesheet" href="./static/css/section-nav.css?v=20261013-layout2">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23586f9c'/%3E%3Cpath d='M17 17h16c9 0 15 5 15 13 0 6-3 10-8 12l9 12H37l-7-10h-2v10H17V17zm11 9v10h5c3 0 5-2 5-5s-2-5-5-5h-5z' fill='white'/%3E%3C/svg%3E">
   <script defer src="./static/js/demos-config.js?v=20261009-release"></script>
   <script defer src="./static/js/demonstrations.js?v=20261009-loading-spinner"></script>
@@ -25,8 +26,32 @@
   <script type="module" src="./static/js/task-scene.js?v=20261012-clean-head"></script>
   <script defer src="./static/js/semantic-map-section.js?v=20261010"></script>
   <script defer src="./static/js/workspace-stage.js?v=20261011"></script>
+  <script defer src="./static/js/section-nav.js?v=20261013-layout2"></script>
 </head>
 <body>
+  <nav class="section-nav" aria-label="Quick navigation">
+    <details class="section-nav__disclosure" open>
+      <summary class="section-nav__toggle"><span aria-hidden="true">☰</span> On this page</summary>
+      <div class="section-nav__panel">
+        <p class="section-nav__caption">ON THIS PAGE</p>
+        <ol class="section-nav__list">
+          <li><a href="#abstract"><span aria-hidden="true">01</span><span>Abstract</span></a></li>
+          <li><a href="#framework"><span aria-hidden="true">02</span><span>RoboAssist Framework</span></a></li>
+          <li><a href="#video"><span aria-hidden="true">03</span><span>Robot Demonstrations</span></a></li>
+          <li><a href="#project-video"><span aria-hidden="true">04</span><span>Video</span></a></li>
+          <li><a href="#semantic-map"><span aria-hidden="true">05</span><span>Semantic Map</span></a></li>
+          <li><a href="#workspace-3d"><span aria-hidden="true">06</span><span>Mapping &amp; Navigation</span></a></li>
+          <li><a href="#interactive-demo"><span aria-hidden="true">07</span><span>Interactive Task Demo</span></a></li>
+          <li><a href="#experiments"><span aria-hidden="true">08</span><span>Experiment Result</span></a></li>
+          <li><a href="#runtime-safety"><span aria-hidden="true">09</span><span>Cross-Layer Safety</span></a></li>
+          <li><a href="#scope-limitations"><span aria-hidden="true">10</span><span>Scope &amp; Future Work</span></a></li>
+          <li><a href="#faq"><span aria-hidden="true">11</span><span>FAQ</span></a></li>
+          <li><a href="#bibtex"><span aria-hidden="true">12</span><span>BibTeX</span></a></li>
+        </ol>
+        <a class="section-nav__top" href="#">↑ Back to top</a>
+      </div>
+    </details>
+  </nav>
   <main>
     <section class="hero project-hero">
       <video class="hero-background-video" id="hero-background-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true" tabindex="-1" disablepictureinpicture>
